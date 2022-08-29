@@ -6,17 +6,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  devise_for :users, path: 'users', controllers: { confirmations: "users/confirmations",
-                                                   omniauth_callbacks: "users/omniauth_callbacks",
-                                                   passwords: "users/passwords",
-                                                   registrations: "users/registrations",
-                                                   sessions: "users/sessions",
-                                                   unlocks: "users/unlocks" }
+  devise_for :users, as: 'users', controllers: { confirmations: "users/confirmations",
+                                                 passwords: "users/passwords",
+                                                 registrations: "users/registrations",
+                                                 sessions: "users/sessions",
+                                                 unlocks: "users/unlocks" }
 
-  devise_for :organizations, path: 'organizations', controllers: { confirmations: "organizations/confirmations",
-                                                                   omniauth_callbacks: "organizations/omniauth_callbacks",
-                                                                   passwords: "organizations/passwords",
-                                                                   registrations: "organizations/registrations",
-                                                                   sessions: "organizations/sessions",
-                                                                   unlocks: "organizations/unlocks" }
+  devise_for :organizations, as: 'organizations', controllers: { confirmations: "organizations/confirmations",
+                                                                 passwords: "organizations/passwords",
+                                                                 registrations: "organizations/registrations",
+                                                                 sessions: "organizations/sessions",
+                                                                 unlocks: "organizations/unlocks" }
 end

@@ -5,6 +5,7 @@ module Accessible
   end
 
   protected
+
   def check_user
     if current_organization
       flash.clear
