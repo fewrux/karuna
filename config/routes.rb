@@ -13,10 +13,10 @@ Rails.application.routes.draw do
                                                    sessions: "users/sessions",
                                                    unlocks: "users/unlocks" }
 
-  devise_for :admins, path: 'organizations', controllers: { confirmations: "organizations/confirmations",
-                                                            omniauth_callbacks: "organizations/omniauth_callbacks",
-                                                            passwords: "organizations/passwords",
-                                                            registrations: "organizations/registrations",
-                                                            sessions: "organizations/sessions",
-                                                            unlocks: "organizations/unlocks" }
+  devise_for :organizations, path: 'organizations', controllers: { confirmations: "organizations/confirmations",
+                                                                   omniauth_callbacks: "organizations/omniauth_callbacks",
+                                                                   passwords: "organizations/passwords",
+                                                                   registrations: "organizations/registrations",
+                                                                   sessions: "organizations/sessions",
+                                                                   unlocks: "organizations/unlocks" }
 end
