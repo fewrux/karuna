@@ -23,5 +23,13 @@ module Karuna
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.to_prepare do
+      # Load stuff not inside models, views, controllers
+      ["../app/sanitizers/*.rb"].each do |x|
+        Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
+          Rails.configuration.cache_classes ? require(c) : load(c)
+        end
+      end
+    end
   end
 end
