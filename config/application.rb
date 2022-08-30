@@ -8,20 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Karuna
   class Application < Rails::Application
-    # config.to_prepare do
-    #   # Load stuff not inside models, views, controllers
-    #   ["../app/sanitizers/organizations/parameter_sanitizer.rb"].each do |x|
-    #     Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
-    #       Rails.configuration.cache_classes ? require(c) : load(c)
-    #     end
-    #   end
-    #   ["../app/sanitizers//users/parameter_sanitizer.rb"].each do |x|
-    #     Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
-    #       Rails.configuration.cache_classes ? require(c) : load(c)
-    #     end
-    #   end
-    # end
-
     config.generators do |generate|
       generate.assets false
       generate.helper false
@@ -37,18 +23,19 @@ module Karuna
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.to_prepare do
-      # Load stuff not inside models, views, controllers
-      ["../app/sanitizers/organizations/parameter_sanitizer.rb"].each do |x|
-        Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
-          Rails.configuration.cache_classes ? require(c) : load(c)
-        end
-      end
-      ["../app/sanitizers//users/parameter_sanitizer.rb"].each do |x|
-        Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
-          Rails.configuration.cache_classes ? require(c) : load(c)
-        end
-      end
-    end
+
+    # config.to_prepare do
+    #   # Load stuff not inside models, views, controllers
+    #   ["../app/sanitizers/organizations/parameter_sanitizer.rb"].each do |x|
+    #     Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
+    #       Rails.configuration.cache_classes ? require(c) : load(c)
+    #     end
+    #   end
+    #   ["../app/sanitizers//users/parameter_sanitizer.rb"].each do |x|
+    #     Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
+    #       Rails.configuration.cache_classes ? require(c) : load(c)
+    #     end
+    #   end
+    # end
   end
 end
