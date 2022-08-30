@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def authenticate_them
-    if users_user_signed_in?
+    if user_signed_in?
       authenticate_user!
-    elsif organizations_organization_signed_in?
+    elsif organization_signed_in?
       authenticate_organization!
     end
   end
