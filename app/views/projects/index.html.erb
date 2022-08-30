@@ -1,17 +1,18 @@
-<main class="container px-5">
+<header>
+  <div>
+<!-- put search bar here -->
+  </div>
+</header>
 
-  <%if @close_offers_exist == false %>
-    <div class="alert alert-secondary mt-2 mb-0 ms-4" id="location-message">
-      There are no offers near this location. Here are some other options for you:
-    </div>
-  <%end%>
 
+<main>
   <div class="row mt-3 ">
     <% @projects.each do |project| %>
-      <div class="col-sm-12 col-lg-6 col-xl-4 my-3">
-        <%= link_to project_path(project), class: "text-decoration-none" do %>
+      <div class="col-sm-12">
+        <!--<%= link_to project_path(project), class: "text-decoration-none" do %>-->
           <%= render 'shared/card', project: project %>
         <% end %>
       </div>
     <% end %>
   </div>
+</main>

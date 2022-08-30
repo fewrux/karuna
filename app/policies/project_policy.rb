@@ -4,9 +4,9 @@ class ProjectPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def show?
-      return true
-    end
+  def show?
+    return true
   end
 end
