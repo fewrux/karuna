@@ -6,4 +6,5 @@ class UsersController < ApplicationController
 
   def create
     @user.user = current_user.id
+  end
 end
