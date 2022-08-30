@@ -1,17 +1,11 @@
-<header>
-  <div>
-<!-- put search bar here -->
-  </div>
-</header>
+
 
 
 <main>
   <div class="row mt-3 ">
     <% @projects.each do |project| %>
       <div class="col-sm-12">
-        <!--<%= link_to project_path(project), class: "text-decoration-none" do %>-->
-          <%= render 'shared/card', project: project %>
-        <% end %>
+        <%= render 'shared/card', project: project %>
       </div>
     <% end %>
   </div>
