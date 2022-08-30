@@ -1,0 +1,12 @@
+
+
+
+<main>
+  <div class="row mt-3 ">
+    <% @projects.each do |project| %>
+      <div class="col-sm-12">
+        <%= render 'shared/card', project: project %>
+      </div>
+    <% end %>
+  </div>
+</main>
