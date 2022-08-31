@@ -1,0 +1,13 @@
+.separator-wave {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+
+
+@media (min-width: 960px) {
+  .separator-wave {
+    max-height: 5%;
+  }
+}

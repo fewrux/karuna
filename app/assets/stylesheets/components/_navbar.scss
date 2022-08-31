@@ -21,6 +21,10 @@
   }
 }
 
+.navbar-toggler-icon {
+  background: var(--bs-navbar-toggler-icon-bg) no-repeat center !important;
+}
+
 .nav-link {
   color: white;
   opacity: 0.5;
@@ -30,24 +34,5 @@
   &:hover {
     color: white;
     opacity: 1;
-  }
-}
-
-.top-wave {
-  position: absolute;
-  z-index: -1;
-}
-
-@media (max-width: 1980px) {
-  /* For a screen < 960px, this CSS will be read */
-  .wave-margin {
-    margin-top: 7%;
-  }
-}
-
-@media (max-width: 960px) {
-  /* For a screen < 960px, this CSS will be read */
-  .wave-margin {
-    margin-top: 10%;
   }
 }

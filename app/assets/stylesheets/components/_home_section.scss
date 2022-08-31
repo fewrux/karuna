@@ -1,0 +1,30 @@
+#how-it-works {
+
+  h2 {
+    // color: white;
+    font-weight: bold;
+  }
+
+  p {
+    // color: white;
+    font-size: 22px;
+    margin-top: 16px;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.card-circle {
+  transition: all 0.3s ease-in-out;
+
+  img {
+    width: 250px;
+    height: 250px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
