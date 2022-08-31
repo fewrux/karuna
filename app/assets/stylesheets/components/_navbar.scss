@@ -11,21 +11,31 @@
   width: 40px;
 }
 
-.nav-item {
-  a {
-    color: white;
-    opacity: 0.5;
-    transition: all 0.3s ease-in-out;
+.navbar-title {
+  color: white;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
 
-    &:hover {
-      color: white;
-      opacity: 1;
-    }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.nav-link {
+  color: white;
+  opacity: 0.5;
+  transition: all 0.3s ease-in-out;
+  margin-left: 2px;
+
+  &:hover {
+    color: white;
+    opacity: 1;
   }
 }
 
 .top-wave {
   position: absolute;
+  z-index: -1;
 }
 
 @media (max-width: 1980px) {
