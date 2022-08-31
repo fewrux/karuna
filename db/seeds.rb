@@ -31,7 +31,7 @@ puts "Created organization"
 categories = ['Children', 'Education', 'Rescued Animals', 'Premaculture', 'Elders']
 10.times do
   project = Project.new
-  project.name = "Solidariedade"
+  project.name = Faker::Mountain.range
   project.description = Faker::Quote.jack_handey
   project.category = categories[rand(0..4)]
   project.address = Faker::Address.street_address
