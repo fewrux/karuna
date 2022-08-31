@@ -5,9 +5,32 @@
   border-radius: 50px;
   opacity: 0.8;
   transition: all 0.3s ease;
+  border: none;
 
   &:hover {
     color: $purple;
     opacity: 1;
+  }
+}
+
+.btn-purple {
+  color: white;
+  background-color: $purple;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: white;
+    background-color: #6c3ccc;
+    border: 1px solid #6c3ccc;;
+  }
+}
+
+.btn-outline-light {
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: $purple;
+    font-weight: 600;
   }
 }
