@@ -1,0 +1,26 @@
+.background-purple {
+  background-color: $purple;
+  color: $light-gray;
+
+  h1, h2, h3, h4 {
+    color: white;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 22px;
+    margin-top: 16px;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.b-radius {
+  border-radius: 50px;
+}
+
+.b-solid {
+  border: 1px solid #dcdcdc;
+}
