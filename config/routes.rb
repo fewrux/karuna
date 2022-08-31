@@ -16,4 +16,6 @@ Rails.application.routes.draw do
                                                                    registrations: "organizations/registrations",
                                                                    sessions: "organizations/sessions",
                                                                    unlocks: "organizations/unlocks" }
+
+  resources :projects, only: [:index]
 end

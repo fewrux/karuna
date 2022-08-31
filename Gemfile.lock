@@ -111,6 +111,8 @@ GEM
       railties (>= 3.2)
     erubi (1.11.0)
     execjs (2.8.1)
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     font-awesome-sass (6.1.2)
       sassc (~> 2.0)
@@ -161,6 +163,8 @@ GEM
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
+    pundit (2.2.0)
+      activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-test (2.0.2)
@@ -262,11 +266,13 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  faker
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.3, >= 7.0.3.1)
   sassc-rails
   selenium-webdriver
