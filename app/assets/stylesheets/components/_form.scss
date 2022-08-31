@@ -1,0 +1,56 @@
+.form-check-input {
+  background-color: white;
+}
+
+.form-select {
+  background-color: white;
+}
+
+.form-card {
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid #dcdcdc;
+}
+
+.border-purple {
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.9;
+    box-shadow: 0px 0px 0px 3px $light-purple;
+  }
+
+  &:focus {
+    opacity: 0.9;
+    box-shadow: 0px 0px 0px 2px $light-purple;
+  }
+}
+
+.devise-form {
+  a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.search-input {
+  #address, #query {
+    border-radius: 10px 0 0 10px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0px 0px 0px 3px $purple;
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 0px 2px $purple;
+    }
+  }
+}

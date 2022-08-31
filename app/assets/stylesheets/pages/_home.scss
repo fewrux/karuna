@@ -1,1 +1,9 @@
 // Specific CSS for your home-page
+a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+body {
+  background-color: $light-blue;
+}
