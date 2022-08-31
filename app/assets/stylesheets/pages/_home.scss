@@ -7,3 +7,18 @@ a {
 body {
   background-color: $light-blue;
 }
+
+.main-text {
+  h2 {
+    font-family: 'Roboto';
+    font-size: 64px;
+    color: $purple;
+  }
+  p {
+
+  }
+}
+
+#last-container {
+  position: relative;
+}

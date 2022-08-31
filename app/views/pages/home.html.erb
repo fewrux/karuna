@@ -1,34 +1,115 @@
 <div class="banner">
-<%= image_tag 'purplewave.png', class:'separator-wave' %>
+  <%= image_tag 'purple-wave.png', class:'separator-wave' %>
 </div>
+
 <%= image_tag 'main-wave.png', class:'separator-wave' %>
 
-<section id="how-it-works" class="py-5">
-    <div class="container text-center py-5">
-      <h2>How does it work?</h2>
-      <div class="row my-3">
-        <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+<section class='main-text' class="py-5">
+  <div class="container text-center py-5">
+    <h2 class='mt-5'>How does it work?</h2>
+    <div class="row my-3 d-flex justify-content-space-between">
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= button_tag type: 'button', data: { bs_toggle:"modal", bs_target:'#exampleModal'} do  %>
           <%= image_tag "https://cdn-icons-png.flaticon.com/512/1385/1385616.png" %>
-          <p>Find a Project you like</p>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/1028/1028157.png" %>
-          <p>Apply to Volunteer</p>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
-          <p>Keep contact</p>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
-          <p>Make your impact!</p>
-        </div>
+        <% end %>
+        <p>Find a Project you like</p>
       </div>
-      <%= link_to "Find Projects!", '#', class: "btn btn-purple" %>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1028/1028157.png" %>
+        <p>Apply to Volunteer</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
+        <p>Keep contact</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
+        <p>Make your impact!</p>
+      </div>
+    </div>
+    <%= link_to "Find Projects!", '#', class: "btn btn-purple" %>
+  </div>
+</section>
+
+<div class="modal fade" id="dimitri" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= image_tag 'main-wave.png', id:'upsidown-wave' %>
+
+<div class="map-div background-purple">
+  <%= render 'shared/map' %>
+</div>
+
+<%= image_tag 'main-wave.png', id:'normal-wave' %>
+
+<section>
+  <div class="container main-text text-center py-5">
+    <h2>Project Types</h2>
+    <div class="row my-3 d-flex justify-content-space-between">
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= button_tag type: 'button', data: { bs_toggle:"modal", bs_target:'#exampleModal'} do  %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/1385/1385616.png" %>
+        <% end %>
+        <p>Find a Project you like</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1028/1028157.png" %>
+        <p>Apply to Volunteer</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
+        <p>Keep contact</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
+        <p>Make your impact!</p>
+      </div>
+    </div>
+</section>
+
+<%= image_tag 'main-wave.png', id:'upsidown-wave' %>
+
+<div class="background-purple" id="last-container">
+  <section>
+    <div class="container text-center py-5">
+      <h2>Impact Made</h2>
+      <div class="row my-3 d-flex justify-content-space-between">
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= button_tag type: 'button', data: { bs_toggle:"modal", bs_target:'#exampleModal'} do  %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/1385/1385616.png" %>
+        <% end %>
+        <p>Find a Project you like</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1028/1028157.png" %>
+        <p>Apply to Volunteer</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
+        <p>Keep contact</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
+        <p>Make your impact!</p>
+      </div>
     </div>
   </section>
-
-
-<div class="map-div">
-  <%= render 'shared/map' %>
+<%= image_tag 'footer-wave.png', id:'footer-wave' %>
 </div>
