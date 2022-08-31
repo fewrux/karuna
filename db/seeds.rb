@@ -26,7 +26,7 @@ organization.save!
 
 puts "Created organization"
 
-project = Project.new(name:"Solidariedade", description:"Text", category:"Children", address:"Bold avenue, 332", city:"New York", available_spots:15, start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), organization: organization)
+project = Project.new(name:"Solidariedade", description:"Our goal is to allow everu kid in the world to have a fulfilled childhood. Founded in 1988, the ..", category:"Children", address:"Bold avenue, 332", city:"New York", available_spots:15, start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), organization: organization)
 project.save!
 
 puts "Cretaed project"
