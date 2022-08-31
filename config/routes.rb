@@ -20,4 +20,5 @@ Rails.application.routes.draw do
                                                                    unlocks: "organizations/unlocks" }
 
 
+  resources :projects, only: [:index]
 end

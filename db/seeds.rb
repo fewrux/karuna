@@ -6,10 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'date'
+require 'faker'
 puts "Cleaning database"
+Project.destroy_all
 User.destroy_all
 Organization.destroy_all
-Project.destroy_all
 
 user = User.new(first_name:"Ana", last_name: "Brasil", email:"ana@lewagon.com", password:"123445", age:30, gender:"feminino", document:"09334", country:"Brasil")
 user.save!
@@ -26,10 +27,25 @@ organization.save!
 
 puts "Created organization"
 
-project = Project.new(name:"Solidariedade", description:"Text", category:"Children", address:"Bold avenue, 332", city:"New York", available_spots:15, start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), organization: organization)
-project.save!
+# create random projects using faker
+categories = ['Children', 'Education', 'Rescued Animals', 'Premaculture', 'Elders']
+10.times do
+  project = Project.new
+  project.name = "Solidariedade"
+  project.description = Faker::Quote.jack_handey
+  project.category = categories[rand(0..4)]
+  project.address = Faker::Address.street_address
+  project.city = Faker::Address.city
+  project.available_spots = rand(5..50)
+  project.start_date = Faker::Date.between(from: '2021-01-21', to: '2024-12-12')
+  project.end_date = project.start_date + rand(7..365)
+  project.organization = organization
+  project.save!
+end
 
-puts "Cretaed project"
+project = Project.new(name:"Solidariedade", description:"Our goal is to allow everu kid in the world to have a fulfilled childhood. Founded in 1988, the ..", category:"Children", address:"Bold avenue, 332", city:"New York", available_spots:15, start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), organization: organization)
+project.save!
+puts "Created project"
 
 booking = Booking.new(start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), user_id:1, project_id:project)
 booking.save!
