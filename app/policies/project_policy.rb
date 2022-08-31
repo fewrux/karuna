@@ -11,6 +11,10 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    true
+  end
+
+  def create?
+    true
   end
 end

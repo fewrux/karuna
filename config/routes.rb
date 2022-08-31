@@ -19,8 +19,7 @@ Rails.application.routes.draw do
                                                                    sessions: "organizations/sessions",
                                                                    unlocks: "organizations/unlocks" }
 
-
-  resources :projects, only: [:index, :show] do
+  resources :projects, only: %i[index show new create] do
     resources :bookings
   end
 end
