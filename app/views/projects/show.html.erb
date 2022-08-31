@@ -1,8 +1,9 @@
 
 
 
-
-<h1>Save the Giraffes in Africa</h1>
+<div class="container">
+  <h1>Save the Giraffes in Africa</h1>
+</div>
 
 <div class="container">
 
@@ -37,14 +38,28 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="d-flex p-2">
+    <h2>Category</h2>
+  </div>
+  <div class="d-flex p-2" ><i class="fa-solid fa-leaf"></i></div>
+</div>
+<div class="container">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean etiam consectetur arcu etiam quis aliquam tortor tincidunt. Placerat scelerisque nisl ultrices arcu, quis at. Semper mollis vitae id augue donec scelerisque dolor viverra. Et euismod nisl nunc viverra quis.
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean etiam consectetur arcu etiam quis aliquam tortor tincidunt. Placerat scelerisque nisl ultrices arcu, quis at. Semper mollis vitae id augue donec scelerisque dolor viverra. Et euismod nisl nunc viverra quis.</p>
+</div>
 
-  <section id="bookings" class="background my-5">
-    <div class="offer-info container p-5">
-      <h3 class="text-center mb-5">Volunteer</h3>
-      <%= simple_form_for [@offer, @booking], data: { controller: "flatpickr" } do |f| %>
-        <%= f.input :start_date, input_html: { class: "border-green b-radius", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
-        <%= f.input :end_date, input_html: { class: "border-green b-radius", data: { flatpickr_target: "secondRangeInput" } }, as: :string %>
-        <%= f.submit "Book now!", class: "btn btn-outline-light b-radius my-3 col-4 w-100" %>
-      <% end %>
+  <div class="container">
+    <div class="d-flex p-2">
+      <section id="bookings" class="background my-5">
+        <div class="offer-info container p-5">
+          <h3 class="text-center mb-5">
+          <%= simple_form_for [@project, @booking], data: { controller: "flatpickr" } do |f| %>
+            <%= f.input :start_date, input_html: { class: "border-green b-radius", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
+            <%= f.input :end_date, input_html: { class: "border-green b-radius", data: { flatpickr_target: "secondRangeInput" } }, as: :string %>
+            <%= f.submit "Book now!", class: "btn btn-flat b-radius my-3 col-4 w-100" %>
+          <% end %>
+        </div>
+      </section>
     </div>
-  </section>
+</div>

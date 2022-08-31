@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  get "/projects/:id", to: "projects#show"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -20,5 +20,7 @@ Rails.application.routes.draw do
                                                                    unlocks: "organizations/unlocks" }
 
 
-  resources :projects, only: [:index]
+  resources :projects, only: [:index, :show] do
+    resources :bookings
+  end
 end
