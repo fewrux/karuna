@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root to: "pages#home"
+
+  get "/projects/:id", to: "projects#show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -16,4 +18,6 @@ Rails.application.routes.draw do
                                                                    registrations: "organizations/registrations",
                                                                    sessions: "organizations/sessions",
                                                                    unlocks: "organizations/unlocks" }
+
+
 end
