@@ -1,26 +1,15 @@
 class ProjectsController < ApplicationController
-before_action :set_project, only: :show
+  before_action :set_project, only: :show
 
+  def index
+    @projects = policy_scope(Project)
+  end
 
   def show
     authorize @project
     @booking = Booking.new
     authorize @booking
   end
-
-  private
-
-  def set_project
-    @project = Project.find(params[:id])
-  end
-
-  def index
-    @projects = policy_scope(Project)
-  end
-
-  # def show
-  #   authorize @project
-  # end
 
   def new
     @project = Project.new
@@ -41,6 +30,10 @@ before_action :set_project, only: :show
   end
 
   private
+
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
   def project_params
     params.require(:project).permit(:name,
