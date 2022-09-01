@@ -33,7 +33,7 @@ before_action :set_project, only: :show
 
     authorize @project
 
-    if @project.save
+    if @project.save!
       redirect_to root_path, notice: "Project was successfully created."
     else
       render :new, status: :unprocessable_entity

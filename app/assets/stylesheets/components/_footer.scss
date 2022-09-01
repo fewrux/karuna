@@ -1,0 +1,29 @@
+#footer {
+  background: #373737;
+  width: 100%;
+
+  p {
+    color: #FFFF;
+    opacity: 0.5;
+  }
+
+  a {
+    color: #FFFF;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      color: #FFFF;
+      opacity: 0.8;
+      scale: 1.2;
+    }
+  }
+
+  .footer-info {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

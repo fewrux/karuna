@@ -1,0 +1,30 @@
+.separator-wave {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+
+
+@media (min-width: 960px) {
+  .separator-wave {
+    max-height: 6%;
+  }
+}
+
+
+#upsidown-wave {
+  transform: scaleY(-1);
+  width: 100%;
+}
+
+#normal-wave {
+  width: 100%;
+}
+
+#footer-wave {
+  position:absolute;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
+}
