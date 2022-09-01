@@ -4,13 +4,12 @@
       <% @projects.each do |project| %>
         <% if project.end_date > Date.current%>
           <div class="col-11 col-md-10 pt-5">
-            <%= render 'shared/card', project: project %>
+            <%= link_to project_path(project), class: "text-decoration-none" do %>
+              <%= render 'shared/card', project: project %>
+            <% end %>
           </div>
         <% end %>
       <% end %>
     </div>
   </div>
 </main>
-
-
-<li><%= link_to restaurant.name, project_path(project) %></li>
