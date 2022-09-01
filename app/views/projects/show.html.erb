@@ -55,7 +55,7 @@
 
 <div class="d-flex justify-content-center ">
       <section id="bookings" class="background my-5">
-        <div class="offer-info container p-5 border">
+        <div class="offer-info container p-5 border-2">
           <h3 class="text-center mb-3">Join the team</h3>
           <%= simple_form_for [@project, @booking], data: { controller: "flatpickr" } do |f| %>
             <%= f.input :start_date, placeholder: 'Start date', input_html: { class: "border-green b-radius", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
