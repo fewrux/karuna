@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root to: "pages#home"
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -17,5 +19,7 @@ Rails.application.routes.draw do
                                                                    sessions: "organizations/sessions",
                                                                    unlocks: "organizations/unlocks" }
 
-  resources :projects, only: %i[index new create]
+  resources :projects, only: %i[index show new create] do
+    resources :bookings
+  end
 end

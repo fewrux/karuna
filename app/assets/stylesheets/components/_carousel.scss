@@ -1,0 +1,20 @@
+.carousel-item > img {
+  margin: 0px;
+  width: 50%;
+  height: 400px;
+  object-fit: cover;
+  outline: black;
+
+}
+
+.carousel-control-prev {
+
+  filter: invert(1);
+}
+
+.carousel-control-next {
+
+  filter: invert(1);
+}
+
+
