@@ -1,0 +1,17 @@
+<div class="card-user-project">
+  <%= image_tag "https://source.unsplash.com/random/?village", class: "user-project-image" %>
+  <div class="user-project-info">
+    <div class="d-flex">
+      <h3><%= project.name %></h3>
+      <h4><%= project.category %></h4>
+    </div>
+    <div>
+      <p><%= project.city %></p>
+      <div class="d-flex">
+        <p class="me-4"><i class="fa-solid fa-calendar-days"></i> <%= project.start_date.strftime("%d %b %Y") %></p>
+        <p><i class="fa-solid ms-2 fa-calendar-check"></i> <%= project.end_date.strftime("%d %b %Y") %></p>
+      </div>
+      <p><%= project.description %></p>
+    </div>
+  </div>
+</div>
