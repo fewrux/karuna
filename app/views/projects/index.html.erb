@@ -1,15 +1,13 @@
 <main class="p-5">
   <div class="container mx-auto">
-    <div class="row my-3 justify-content-center project-cards ">
-      <% if @projects.present? %>
-        <% @projects.each do |project| %>
-          <% if project.end_date > Date.current%>
-            <div class="col-11 col-md-10 pt-5">
-              <%= link_to project_path(project), class: "card-hover" do %>
-                <%= render 'shared/card', project: project %>
-              <% end %>
-            </div>
-          <% end %>
+    <div class="row mt-3 justify-content-center project-cards ">
+      <% @projects.each do |project| %>
+        <% if project.end_date > Date.current%>
+          <div class="col-11 col-md-10 pt-5">
+            <%= link_to project_path(project), class: "text-decoration-none" do %>
+              <%= render 'shared/card', project: project %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>
