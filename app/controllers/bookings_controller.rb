@@ -1,10 +1,8 @@
 class BookingsController < ApplicationController
 
-
   def create
     @project = Project.find(params[:project_id])
     @booking = Booking.new(booking_params)
-    raise
     @booking.user_id = current_user
     @booking.project_id = @project
 
