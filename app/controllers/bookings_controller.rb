@@ -1,6 +1,4 @@
 class BookingsController < ApplicationController
-
-
   def create
     @project = Project.find(params[:project_id])
     @booking = Booking.new(booking_params)
@@ -9,7 +7,7 @@ class BookingsController < ApplicationController
 
     authorize @booking
     if @booking.save
-      redirect_to project_path(@project), notice: "Booking created"
+      redirect_to @current_user, notice: "Booking created"
     else
       render "projects/show", status: :unprocessable_entity
     end
@@ -20,5 +18,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :user_id, :project_id)
   end
-
 end

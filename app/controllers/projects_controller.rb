@@ -1,14 +1,11 @@
 class ProjectsController < ApplicationController
-before_action :set_project, only: :show
-
+  before_action :set_project, only: :show
 
   def show
     authorize @project
     @booking = Booking.new
     authorize @booking
   end
-
-  private
 
   def set_project
     @project = Project.find(params[:id])
