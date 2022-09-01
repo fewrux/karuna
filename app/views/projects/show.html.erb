@@ -5,12 +5,27 @@
 
   <div class="container">
 
+<<<<<<< HEAD
     <div id="carouselExampleInterval" class="carousel-slide" data-bs-ride="carousel">
       <div class="carousel-inner">
       <div class="container">
         <div class="carousel-item active" data-bs-interval="10000">
           <img src="https://images.unsplash.com/photo-1509973301519-9ca52aa49658?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80" class="d-block w-100" alt="...">
         </div>
+=======
+
+<div class="container">
+  <h1 class= "project-header"><strong> <%= @project.name %></strong></h1>
+</div>
+
+<div class="container">
+
+  <div id="carouselExampleInterval" class="carousel-slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    <div class="container">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="https://images.unsplash.com/photo-1509973301519-9ca52aa49658?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80" class="d-block w-100" alt="...">
+>>>>>>> master
       </div>
       <div class="container">
         <div class="carousel-item" data-bs-interval="2000">
@@ -37,13 +52,10 @@
   </div>
 
 
-        <h2><strong>Category</strong></h2>
-        <div class="container-leaf">
-          <i class="fa-solid fa-leaf"></i>
-        </div>
-
-
-
+  <div class="container">
+    <h2><i class="fa-solid fa-leaf me-3 ms-2 mt-2"></i><strong><%= @project.category %></strong></h2>
+    <p><i class="fa-solid fa-location-dot ms-2"></i> <%= @project.address %></p>
+    <p><i class="fa-solid fa-calendar-days ms-2"></i>  <%= @project.start_date %> <i class="fa-solid fa-calendar-check"></i>  <%= @project.end_date %></p>
     <h2 class="project-location">Project location</h2>
     <div class="container">
   </div>
@@ -68,3 +80,25 @@
       </div>
   </div>
 </main>
+=======
+
+
+  <p class="text-justify ms-2"> <%= @project.description %> </p>
+</div>
+
+  <div class="container">
+
+<div class="d-flex justify-content-center ">
+      <section id="bookings" class="background my-5">
+        <div class="offer-info container p-5 border">
+          <h3 class="text-center mb-3">Join the team</h3>
+          <%= simple_form_for [@project, @booking], data: { controller: "flatpickr" } do |f| %>
+            <%= f.input :start_date, placeholder: 'Start date', input_html: { class: "border-green b-radius", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
+            <%= f.input :end_date, placeholder: 'End date', input_html: { class: "border-green b-radius", data: { flatpickr_target: "secondRangeInput" } }, as: :string %>
+            <%= f.submit "Book now!", class: "btn btn-lg btn-block btn-purple mt-4" %>
+          <% end %>
+        </div>
+      </section>
+    </div>
+</div>
+>>>>>>> master
