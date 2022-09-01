@@ -2,10 +2,11 @@ class BookingsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user
-    @booking.project_id = @project
+    @booking.user = current_user
+    @booking.project = @project
 
     authorize @booking
+
     if @booking.save
       redirect_to @current_user, notice: "Booking created"
     else

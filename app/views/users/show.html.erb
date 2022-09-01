@@ -1,1 +1,4 @@
-<h2>Welcome, <%= current_user.first_name%>!</h2>
+<main class="my-5 p-5">
+  <h2>Welcome, <%= current_user.first_name%>!</h2>
+  <h1><%= current_user.projects.first.name %></h1>
+</main>
