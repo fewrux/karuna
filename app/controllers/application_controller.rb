@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_them
 
+  
   protected
 
   def authenticate_them
