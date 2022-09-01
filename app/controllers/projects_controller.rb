@@ -18,10 +18,6 @@ before_action :set_project, only: :show
     @projects = policy_scope(Project)
   end
 
-  # def show
-  #   authorize @project
-  # end
-
   def new
     @project = Project.new
     authorize @project
