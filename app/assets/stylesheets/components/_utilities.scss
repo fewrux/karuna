@@ -17,11 +17,18 @@
   background-color: $purple;
   color: $light-gray;
 
-  h1, h2, h3, h4 {
+  h1, h2 {
+    font-weight: 600;
+    font-size: 40px;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 30px;
+  }
+  h4 {
     font-weight: 600;
     font-size: 25px;
   }
-
   .container {
     max-width: 1200px;
   }

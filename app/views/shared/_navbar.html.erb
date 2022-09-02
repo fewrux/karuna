@@ -52,10 +52,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "About us", '#', class: "nav-link" %>
+            <%= link_to "About us", '#', class: "nav-link", target: :_blank %>
           </li>
           <li class="nav-item">
-            <%= link_to "Donate", '#', class: "nav-link" %>
+            <%= link_to "Donate", '#', class: "nav-link", target: :_blank %>
           </li>
           <li class="nav-item">
             <%= link_to "Become a partner", new_organization_session_path, class: "nav-link" %>
@@ -63,7 +63,7 @@
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
-          <li class="nav-item ms-3">
+          <li class="nav-button ms-3">
             <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn-white" %>
           </li>
         <% end %>
