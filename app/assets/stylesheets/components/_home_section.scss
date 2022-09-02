@@ -1,24 +1,20 @@
 #how-it-works {
-
-  h2 {
-    // color: white;
-    font-weight: bold;
-  }
-
-  p {
-    // color: white;
-    font-size: 22px;
-    margin-top: 16px;
-  }
-
   .container {
     max-width: 1200px;
   }
+
+  p {
+    color: $mid-gray;
+  }
 }
 
+#impact-photo {
+  padding: 5px 0 5px 5px;
+  border-radius: 12px;
+
+}
 .card-circle {
   transition: all 0.3s ease-in-out;
-
   img {
     width: 250px;
     height: 250px;
@@ -26,5 +22,68 @@
 
   &:hover {
     transform: scale(1.1);
+    filter: brightness(1.1);
   }
+}
+
+.map-div {
+  height: auto;
+  width: 900px;
+
+}
+
+.home-section {
+  min-height: 80vh;
+}
+
+#last-container {
+  position: relative;
+  min-height: 95vh;
+  padding-bottom: 10px;
+}
+
+#banner-title {
+  position: absolute;
+  color: white;
+  z-index: 20;
+  bottom: 40px;
+  left: 60px;
+  font-weight: bolder;
+  text-shadow: 2px 2px 5px rgb(0,0,0);
+}
+
+.map-text p {
+    font-weight: 500;
+    font-size: 22px;
+
+}
+
+#volunteer-picture {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#volunteer-picture-2 {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.volunteer-pics {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+}
+
+// .pic-container {
+//   width: 180px;
+//   height: auto;
+// }
+
+.volunteer-grid {
+  width: 160px;
+  height: 180px;
 }

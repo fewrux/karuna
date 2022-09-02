@@ -34,3 +34,18 @@
     font-weight: 600;
   }
 }
+
+#find-projects-button {
+  padding: 20px;
+  font-weight: bold;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+    box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+  }
+}
+
+button {
+  border: none;
+  background: none;
+}
