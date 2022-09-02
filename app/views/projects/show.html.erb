@@ -1,5 +1,5 @@
-<div class="container showpage-title">
-  <h1 class= "project-header"><strong> <%= @project.name %></strong></h1>
+<div class="container showpage-title mb-3">
+  <h1 class= "project-header ms-0"><strong> <%= @project.name %></strong></h1>
 </div>
 
 <div class="container">
@@ -26,14 +26,23 @@
     </div>
  </div>
 
-<div class="container">
-  <h2><i class="fa-solid fa-leaf me-3 ms-2 mt-2"></i><strong><%= @project.category %></strong></h2>
-  <p style="color:grey;"><i class="fa-solid fa-location-dot ms-2"></i> <%= @project.address %></p>
-  <p style="color:grey;"><i class="fa-solid fa-calendar-days ms-2"></i>  <%= @project.start_date %> <i class="fa-solid fa-calendar-check"></i>  <%= @project.end_date %></p>
-  <p class="text-justify ms-2"> <%= @project.description %> </p>
+<div class="container project-infos">
+  <h2><i class="fa-solid fa-leaf me-3 ms-2 mt-4"></i><strong><%= @project.category %></strong></h2>
+  <p style="color:grey;"><i class="fa-solid fa-location-dot ms-2 mt-3"></i> <%= @project.address %></p>
+  <p style="color:grey;"><i class="fa-solid fa-calendar-days ms-2"></i>  <%= @project.start_date %> <i class="fa-solid fa-calendar-check ms-4"></i>  <%= @project.end_date %></p>
+  <p class="text-justify ms-2 p-description mt-4"> <%= @project.description %> </p>
 </div>
 
-<div class="container">
+
+<div class="container project-volunteers">
+  <h3>Volunteers</strong></h3>
+  <div class="volunteer-avatars-show">
+
+  </div>
+</div>
+
+
+<div class="container my-5">
   <div class="d-flex justify-content-center ">
     <section id="bookings" class="background my-5">
       <div class="offer-info container p-5 border form-show-page">

@@ -32,4 +32,17 @@ margin-left: 18px;
 
 .showpage-title {
   margin-top: 100px;
+  color: $dark-gray;
+  font-size: 30px;
+}
+
+.project-infos {
+  h2 {
+    font-size: 25px;
+    color: $mid-gray;
+  }
+  .p-description {
+    font-size: 21px;
+    color: $mid-gray;
+  }
 }
