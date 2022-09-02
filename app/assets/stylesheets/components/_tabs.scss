@@ -1,0 +1,12 @@
+.tab-link {
+  padding: 0 8px;
+  border-bottom: 3px solid transparent;
+
+  &:hover {
+    border-bottom: 3px solid $light-purple;
+  }
+
+  &:focus {
+    border-bottom: 3px solid $purple;
+  }
+}
