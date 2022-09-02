@@ -1,0 +1,14 @@
+.user-panel-aside {
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .user-panel-aside {
+    flex-direction: row;
+  }
+
+  .user-bio {
+    margin-left:24px;
+    align-self: center;
+  }
+}

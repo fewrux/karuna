@@ -28,12 +28,12 @@ organization.save!
 puts "Created organization"
 
 # create random projects using faker
-categories = ['Children', 'Education', 'Rescued Animals', 'Premaculture', 'Elders']
+categories = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access]
 10.times do
   project = Project.new
   project.name = Faker::Mountain.range
   project.description = Faker::Quote.jack_handey
-  project.category = categories[rand(0..4)]
+  project.category = categories.sample
   project.address = Faker::Address.street_address
   project.city = Faker::Address.city
   project.available_spots = rand(5..50)
@@ -43,11 +43,9 @@ categories = ['Children', 'Education', 'Rescued Animals', 'Premaculture', 'Elder
   project.save!
 end
 
-project = Project.new(name:"Solidariedade", description:"Our goal is to allow everu kid in the world to have a fulfilled childhood. Founded in 1988, the ..", category:"Children", address:"Bold avenue, 332", city:"New York", available_spots:15, start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), organization: organization)
-project.save!
 puts "Created project"
 
-booking = Booking.new(start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), user_id:1, project_id:project)
+booking = Booking.new(start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), user: user, project:project)
 booking.save!
 
 puts "Created booking"
