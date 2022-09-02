@@ -2,16 +2,25 @@
   width: 45px;
   border-radius: 50%;
 }
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;
 }
+
+.avatar-xl {
+  max-height: 250px;
+  max-width: 250px;
+  border-radius: 50%;
+}
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
 .avatar-square {
   width: 40px;
   border-radius: 0px;
@@ -29,6 +38,11 @@
 @media (max-width: 600px) {
   .avatar {
     width: 30px;
+  }
+
+  .avatar-xl {
+    max-height: 150px;
+    max-width: 150px;
   }
 }
 

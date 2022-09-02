@@ -1,10 +1,12 @@
+<% categories = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access] %>
+
 <main class="container my-5 p-5">
   <div class="form-card background-purple b-radius p-5">
     <h1 class="mb-4">Create your Project</h1>
     <%= simple_form_for @project, data: { controller: "flatpickr" } do |f| %>
       <%= f.input :name, label: "Project name", input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :description, input_html: { class: "border-purple b-radius px-4" } %>
-      <%= f.input :category, input_html: { class: "border-purple b-radius px-4" } %>
+      <%= f.input :category, collection: categories, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :address, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :city, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :available_spots, input_html: { class: "border-purple b-radius px-4" } %>
