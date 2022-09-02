@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.project = @project
-    @booking.status = 0
 
     authorize @booking
 
