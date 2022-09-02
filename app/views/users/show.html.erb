@@ -19,7 +19,7 @@
     <div class="col-12 col-lg-3">
       <aside>
         <div class="user-panel-aside d-flex">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/felipecrubio", class: "avatar-xl mb-3" %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/apcbrasil", class: "avatar-xl mb-3" %>
           <div class="user-bio">
             <h3><%= current_user.first_name%> <%= current_user.last_name %></h3>
             <p><i class="fa-solid fa-location-dot"></i> <%= current_user.country %></p>
@@ -33,7 +33,9 @@
         <div class="cards-user b-solid b-radius pb-0">
           <% current_user.projects.each do |project| %>
             <div class="mb-5">
-            <%= render 'shared/card_user_project', project: project %>
+              <%= link_to project_path(project), class: "hover-purple text-decoration-none" do %>
+                <%= render 'shared/card_user_project', project: project %>
+              <% end %>
             </div>
           <% end %>
         </div>
