@@ -4,7 +4,7 @@
       <% @projects.each do |project| %>
         <% if project.end_date > Date.current%>
           <div class="col-11 col-md-10 pt-5">
-            <%= link_to project_path(project), class: "text-decoration-none" do %>
+            <%= link_to project_path(project), class: "hover-purple text-decoration-none" do %>
               <%= render 'shared/card', project: project %>
             <% end %>
           </div>
