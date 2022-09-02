@@ -4,12 +4,8 @@
 
   h1, h2, h3, h4 {
     color: white;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 22px;
-    margin-top: 16px;
+    font-weight: 600;
+    font-size: 40px;
   }
 
   .container {
@@ -17,10 +13,27 @@
   }
 }
 
+.background-impact {
+  background-color: $purple;
+  color: $light-gray;
+
+  h1, h2, h3, h4 {
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}
 .b-radius {
   border-radius: 50px;
 }
 
 .b-solid {
   border: 1px solid #dcdcdc;
+}
+
+.b-bottom {
+  border-bottom: 1px solid #dcdcdc;
 }

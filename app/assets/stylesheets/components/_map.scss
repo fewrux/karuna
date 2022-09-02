@@ -1,5 +1,7 @@
 g {
-  fill: $light-blue;
+  fill: #FFFF;
+  opacity: 0.8;
+  transition: all 0.25s ease-in-out;
   &:hover {
     fill: #E84AAF;
   }

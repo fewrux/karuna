@@ -1,115 +1,302 @@
-<div class="banner">
+<div class="banner d-flex align-items center justify-content-center">
+  <h1 id='banner-title'>Compassion is Action.</h1>
   <%= image_tag 'purple-wave.png', class:'separator-wave' %>
 </div>
 
-<%= image_tag 'main-wave.png', class:'separator-wave' %>
+<%= image_tag 'main-wave.png', class:'normal-wave' %>
 
-<section class='main-text' class="py-5">
-  <div class="container text-center py-5">
+<section class='main-text home-section d-flex align-items-center flex-column'>
+  <div class="container text-center py-5" id="how-it-works">
     <h2 class='mt-5'>How does it work?</h2>
-    <div class="row my-3 d-flex justify-content-space-between">
+    <div class="row my-3 d-flex justify-content-space-between" data-controller="modal">
+
       <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= button_tag type: 'button', data: { bs_toggle:"modal", bs_target:'#exampleModal'} do  %>
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/1385/1385616.png" %>
+        <%= button_tag data: { action: "click->modal#openFirstModal" } do  %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/3787/3787620.png  " %>
         <% end %>
         <p>Find a Project you like</p>
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1028/1028157.png" %>
-        <p>Apply to Volunteer</p>
+      <div class="modal" data-modal-target="firstModal" data-bs-backdrop="true" data-bs-keyboard="true">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-action="click->modal#closeFirstModal">&times;</button>
+            <h3>First Modal</h3>
+          </div>
+          <div class="modal-body">
+            <p>Some text</p>
+          </div>
+        </div>
       </div>
+
       <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
-        <p>Keep contact</p>
+        <%= button_tag data: { action: "click->modal#openSecondModal" } do  %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/3787/3787089.png" %>
+        <% end %>
+        <p>Apply for Volunteer</p>
       </div>
+      <div class="modal" data-modal-target="secondModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-action="click->modal#closeSecondModal">&times;</button>
+            <h3>Second Modal</h3>
+          </div>
+          <div class="modal-body">
+            <p>Some text</p>
+          </div>
+        </div>
+      </div>
+
       <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
+        <%= button_tag data: { action: "click->modal#openThirdModal" } do  %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/3157/3157886.png" %>
+        <% end %>
+        <p>Stay in touch</p>
+      </div>
+      <div class="modal" data-modal-target="thirdModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-action="click->modal#closeThirdModal">&times;</button>
+            <h3>Third Modal</h3>
+          </div>
+          <div class="modal-body">
+            <p>Some text</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
+        <%= button_tag data: { action: "click->modal#openFourthModal" } do  %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/3093/3093305.png" %>
+        <% end %>
         <p>Make your impact!</p>
       </div>
+      <div class="modal" data-modal-target="fourthModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-action="click->modal#closeFourthModal">&times;</button>
+            <h3>Fourth Modal</h3>
+          </div>
+          <div class="modal-body">
+            <p>Some text</p>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <%= link_to "Find Projects!", '#', class: "btn btn-purple" %>
+    <%= link_to "Find Projects!", '#', class: "btn btn-purple", id: "find-projects-button" %>
   </div>
 </section>
 
-<div class="modal fade" id="dimitri" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+<%= image_tag 'main-wave.png', class:'upsidown-wave' %>
+
+<section class="background-purple home-section d-flex align-items-center justify-content-center flex-column">
+<div class="text-center my-5">
+  <h2>Worldwide Community</h2>
+</div>
+  <div class="map-div background-purple">
+    <%= render 'shared/map' %>
+  </div>
+  <div class="text-center mb-4 map-text">
+    <p>We have Karuner's all over the world!<br>Be part of this amazing community and let's spread kidness together.</p>
+  </div>
+</section>
+
+<%= image_tag 'main-wave.png', class:'normal-wave' %>
+
+<section class="container home-section">
+  <div class="container main-text text-center py-5 mt-5">
+    <h2 class="text">Project Types</h2>
+    <div class="container d-flex justify-content-center">
+      <div class="row my-5 max-width project-types">
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1597476885328-ce9c89859503?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80)"
+            >Construction
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
+            >Agriculture
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1546531130-0f36255d9d49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)"
+            >Water<br>Access
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1502592238809-4cba3c1b80bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)"
+            >Sanitation
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1610500796385-3ffc1ae2f046?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
+            >Education
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1643321610692-719deb378a33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)"
+            >Relief<br>Effort
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1530201029781-9ea4233e7ae4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80)"
+            >Animal<br>Rescue
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to '#' do %>
+            <div class="project-type-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url(https://images.unsplash.com/photo-1617953141905-b27fb1f17d88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)"
+            >Enviromental
+            </div>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
-
-<%= image_tag 'main-wave.png', id:'upsidown-wave' %>
-
-<div class="map-div background-purple">
-  <%= render 'shared/map' %>
-</div>
-
-<%= image_tag 'main-wave.png', id:'normal-wave' %>
-
-<section>
-  <div class="container main-text text-center py-5">
-    <h2>Project Types</h2>
-    <div class="row my-3 d-flex justify-content-space-between">
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= button_tag type: 'button', data: { bs_toggle:"modal", bs_target:'#exampleModal'} do  %>
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/1385/1385616.png" %>
-        <% end %>
-        <p>Find a Project you like</p>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1028/1028157.png" %>
-        <p>Apply to Volunteer</p>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
-        <p>Keep contact</p>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
-        <p>Make your impact!</p>
-      </div>
-    </div>
 </section>
 
-<%= image_tag 'main-wave.png', id:'upsidown-wave' %>
+<%= image_tag 'main-wave.png', class:'upsidown-wave' %>
 
-<div class="background-purple" id="last-container">
-  <section>
-    <div class="container text-center py-5">
-      <h2>Impact Made</h2>
-      <div class="row my-3 d-flex justify-content-space-between">
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= button_tag type: 'button', data: { bs_toggle:"modal", bs_target:'#exampleModal'} do  %>
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/1385/1385616.png" %>
-        <% end %>
-        <p>Find a Project you like</p>
+<section class="background-impact home-section d-flex align-items-center justify-content-center flex-column" id="last-container">
+  <h2 class="text-center mb-5">Impact made</h2>
+  <div class="container impact-card">
+    <img id="impact-photo" src="https://images.unsplash.com/photo-1543180930-261980d4868a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=456&q=80" />
+    <div class="impact-card-infos d-flex flex-column" id="impact-card-text">
+      <div class="impact-info d-flex flex-column">
+        <h2>Project name</h2>
+        <div class="d-flex justify-content-between text-center">
+          <div>
+            <h4>3.000</h4>
+            <p>Info info info</p>
+          </div>
+          <div>
+            <h4>50%</h4>
+            <p>Info info info</p>
+          </div>
+          <div>
+            <h4>256</h4>
+            <p>Info info info</p>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1028/1028157.png" %>
-        <p>Apply to Volunteer</p>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
-        <p>Keep contact</p>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-3 my-5 card-circle">
-        <%= image_tag "https://cdn-icons-png.flaticon.com/512/3360/3360579.png" %>
-        <p>Make your impact!</p>
+      <div class="impact-info d-flex">
+        <div class="d-flex flex-column">
+          <h2 class="mb-4">Volunteers</h2>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+              <%= link_to '#' do %>
+                <%= image_tag 'https://images.unsplash.com/photo-1622698222667-8dcb54a2b22e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', id:"volunteer-picture" %>
+              <% end %>
+              <p><strong><%= link_to "Akhil", "#" %></strong><br>30y Mumbai<br>Engineer</p>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <%= link_to '#' do %>
+                <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', id:"volunteer-picture-2" %>
+              <% end %>
+              <p><strong><%= link_to "Lydia", "#" %></strong><br>22y Germany<br>Designer</p>
+            </div>
+          </div>
+        </div>
+        <div class="volunteers">
+          <div class="container volunteer-grid d-flex pt-3">
+            <div class="row">
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <%= link_to '#' do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-<%= image_tag 'footer-wave.png', id:'footer-wave' %>
-</div>
+  </div>
+  <%= image_tag "footer-wave.png", id:"footer-wave" %>
+</section>

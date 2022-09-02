@@ -2,29 +2,53 @@
   position: absolute;
   width: 100%;
   z-index: 10;
+  opacity: 0.9;
 }
 
-
+#navbar-wave {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
 
 @media (min-width: 960px) {
   .separator-wave {
+    max-height: 2vh;
+  }
+
+  .upsidown-wave {
+    max-height: 4vh;
+  }
+
+  .normal-wave {
+    max-height: 4vh;
+  }
+
+  #footer-wave {
     max-height: 6%;
+  }
+
+  #navbar-wave {
+    max-height: 5vh;
   }
 }
 
 
-#upsidown-wave {
+.upsidown-wave {
   transform: scaleY(-1);
   width: 100%;
+  opacity: 0.9;
 }
 
-#normal-wave {
+.normal-wave {
   width: 100%;
+  opacity: 0.9;
 }
 
 #footer-wave {
   position:absolute;
-  z-index: 10;
   bottom: 0;
   width: 100%;
+  opacity: 0.9;
+  margin-top: 10px;
 }

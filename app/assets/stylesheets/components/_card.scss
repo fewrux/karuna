@@ -6,11 +6,12 @@
   display: flex;
   border-radius: 12px;
   position: relative;
+  flex-grow: 1;
 }
 
 .card-project .project-image {
   height: 100%;
-  width: 200px;
+  width: 300px;
   object-fit: cover;
   border-bottom-left-radius: 12px;
   border-top-left-radius: 12px;
@@ -52,6 +53,90 @@
   margin-left: auto;
 }
 
+.max-width {
+  max-width: 1000px;
+}
+
+.project-type-card {
+  background-size: cover;
+  background-position: center;
+  height: 220px;
+  width: 220px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: all 0.1s ease-in-out;
+}
+
+.project-types a {
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.15);
+  }
+}
+.impact-card {
+  overflow: hidden;
+  height: 400px;
+  background: #D9D9D9;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0px;
+  width: 900px;
+  margin-bottom: 80px;
+  color: $purple;
+
+  img {
+    height: 100%;
+    width: 300px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    a {
+      &:hover {
+        color: $purple;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}
+.impact-card-infos {
+  padding: 16px;
+
+
+  .impact-info {
+    border-radius: 12px;
+    background-color: white;
+    padding: 1% 84%;
+    margin: 5px 0;
+  }
+}
+
+#impact-card-text {
+  color: $purple;
+}
+
 @media (max-width: 768px) {
   .card-project .avatars {
     width: 150px;
@@ -71,5 +156,14 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+  }
+}
+
+.card-hover {
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    color: $neon-purple;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
   }
 }
