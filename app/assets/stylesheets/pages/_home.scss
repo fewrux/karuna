@@ -4,21 +4,14 @@ a {
   text-decoration: none !important;
 }
 
-body {
-  background-color: $light-blue;
-}
-
 .main-text {
   h2 {
-    font-family: 'Roboto';
-    font-size: 64px;
+    font-size: 40px;
     color: $purple;
+    font-weight: 600;
   }
   p {
-
+    font-size: 20px;
+    margin-top: 15px;
   }
-}
-
-#last-container {
-  position: relative;
 }
