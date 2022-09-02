@@ -1,5 +1,5 @@
-<div class="banner d-flex align-items center justify-content-center">
-  <h1 id='banner-title'>Compassion is Action.</h1>
+<div class="banner d-flex align-items center justify-content-center typewriter">
+  <p><span id="banner-title" data-controller="typed-js"></span></p>
   <%= image_tag 'purple-wave.png', class:'separator-wave' %>
 </div>
 
@@ -20,10 +20,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <button data-action="click->modal#closeFirstModal">&times;</button>
-            <h3>First Modal</h3>
+            <h3>How can I search a Project?</h3>
           </div>
           <div class="modal-body">
-            <p>Some text</p>
+            <p>You can search by location</p>
+            <%= image_tag 'mapa_explicativo.png', class:'modal-image' %>
+            <p>By Project Type</p>
+            <%= image_tag 'project types.png', class:'modal-image' %>
+            <p>Or you can make a more specific search</p>
+            <%= link_to "Find Projects!", '#', class: "btn btn-purple", id:"find-projects-button", target: :_blank %>
+            <p>You can find all of this options here at this page!</p>
           </div>
         </div>
       </div>
@@ -38,10 +44,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <button data-action="click->modal#closeSecondModal">&times;</button>
-            <h3>Second Modal</h3>
+            <h3>How to apply for a Project</h3>
           </div>
           <div class="modal-body">
-            <p>Some text</p>
+            <p>After you find a Project that interests you, you can apply to volunteer at the Project's Page. Just pick an available date and send a request.</p>
+            <%= image_tag 'show_project.png', class:'modal-image' %>
+            <p>After that, you can check your request's status at your own Profile Page.</p>
+            <%= image_tag 'project_status.png', class:'modal-image' %>
           </div>
         </div>
       </div>
@@ -56,10 +65,10 @@
         <div class="modal-content">
           <div class="modal-header">
             <button data-action="click->modal#closeThirdModal">&times;</button>
-            <h3>Third Modal</h3>
+            <h3>Communication is Everything!</h3>
           </div>
           <div class="modal-body">
-            <p>Some text</p>
+            <p>After you get accepted by the Project's host, you get access to the Event's Chat, where you can share messages with your teammates and solve all your doubts!</p>
           </div>
         </div>
       </div>
@@ -74,16 +83,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <button data-action="click->modal#closeFourthModal">&times;</button>
-            <h3>Fourth Modal</h3>
+            <h3>Compassion is Action!</h3>
           </div>
           <div class="modal-body">
-            <p>Some text</p>
+            <p>Be ready to make the most of this opportunity. And remember: "Be kind whenever possible. It is always possible."  </p>
           </div>
         </div>
       </div>
 
     </div>
-    <%= link_to "Find Projects!", '#', class: "btn btn-purple", id: "find-projects-button" %>
+    <%= link_to "Find Projects!", '#', class: "btn btn-purple", id:"find-projects-button", target: :_blank %>
   </div>
 </section>
 
@@ -110,7 +119,7 @@
       <div class="row my-5 max-width project-types">
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -121,7 +130,7 @@
         </div>
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -132,7 +141,7 @@
         </div>
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -143,7 +152,7 @@
         </div>
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -154,7 +163,7 @@
         </div>
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -165,7 +174,7 @@
         </div>
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -176,7 +185,7 @@
         </div>
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -187,7 +196,7 @@
         </div>
 
         <div class="col-sm-6 col-lg-3">
-          <%= link_to '#' do %>
+          <%= link_to '#', target: :_blank do %>
             <div class="project-type-card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
@@ -208,88 +217,88 @@
   <h2 class="text-center mb-5">Impact made</h2>
   <div class="container impact-card">
     <img id="impact-photo" src="https://images.unsplash.com/photo-1543180930-261980d4868a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=456&q=80" />
-    <div class="impact-card-infos d-flex flex-column" id="impact-card-text">
-      <div class="impact-info d-flex flex-column">
-        <h2>Project name</h2>
-        <div class="d-flex justify-content-between text-center">
-          <div>
-            <h4>3.000</h4>
-            <p>Info info info</p>
+    <div class="impact-card-infos d-flex flex-column justify-content-between" id="impact-card-text">
+      <div class="impact-info d-flex flex-column mb-1 ms-2 me-1">
+        <h3 id="project-title"><%= link_to 'Project name', '#', target: :_blank %></h3>
+        <div class="d-flex justify-content-around text-center">
+          <div class="d-flex flex-column justify-content-center">
+            <h4 class="nopadding">3.000</h4>
+            <p class="nopadding">Info info info</p>
           </div>
-          <div>
-            <h4>50%</h4>
-            <p>Info info info</p>
+          <div class="d-flex flex-column justify-content-center">
+            <h4 class="nopadding">50%</h4>
+            <p class="nopadding">Info info info</p>
           </div>
-          <div>
-            <h4>256</h4>
-            <p>Info info info</p>
+          <div class="d-flex flex-column justify-content-center">
+            <h4 class="nopadding">256</h4>
+            <p class="nopadding">Info info info</p>
           </div>
         </div>
       </div>
-      <div class="impact-info d-flex">
+      <div class="impact-info d-flex justify-content-around mt-1 ms-2 me-1">
         <div class="d-flex flex-column">
-          <h2 class="mb-4">Volunteers</h2>
-          <div class="d-flex">
-            <div class="d-flex flex-column align-items-center justify-content-center">
-              <%= link_to '#' do %>
+          <h3 class="mb-4">Volunteers</h3>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column align-items-center volunteer-content">
+              <%= link_to '#', target: :_blank do %>
                 <%= image_tag 'https://images.unsplash.com/photo-1622698222667-8dcb54a2b22e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', id:"volunteer-picture" %>
               <% end %>
-              <p><strong><%= link_to "Akhil", "#" %></strong><br>30y Mumbai<br>Engineer</p>
+              <p><strong class="volunteer-name"><%= link_to "Akhil", "#", target: :_blank %></strong><br>30y Mumbai<br>Engineer</p>
             </div>
-            <div class="d-flex flex-column align-items-center">
-              <%= link_to '#' do %>
+            <div class="d-flex flex-column align-items-center volunteer-content">
+              <%= link_to '#', target: :_blank do %>
                 <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', id:"volunteer-picture-2" %>
               <% end %>
-              <p><strong><%= link_to "Lydia", "#" %></strong><br>22y Germany<br>Designer</p>
+              <p><strong class="volunteer-name"><%= link_to "Lydia", "#", target: :_blank %></strong><br>22y Germany<br>Designer</p>
             </div>
           </div>
         </div>
         <div class="volunteers">
-          <div class="container volunteer-grid d-flex pt-3">
+          <div class="container volunteer-grid d-flex justify-content-center align-items-between pt-4">
             <div class="row">
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1629467057571-42d22d8f0cbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1602471615287-d733c59b79c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1633068587634-4280dabf12ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=407&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1632922267756-9b71242b1592?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1533689476487-034f57831a58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1627748868900-f2decee603e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
               <div class="col-4">
-                <%= link_to '#' do %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=383&q=80', class:"volunteer-pics" %>
+                <%= link_to '#', target: :_blank do %>
+                  <%= image_tag 'https://images.unsplash.com/photo-1571901205848-96622809cf6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', class:"volunteer-pics" %>
                 <% end %>
               </div>
             </div>

@@ -12,3 +12,14 @@
     bottom: 0;
   }
 }
+
+#banner-title {
+  position: absolute;
+  color: white;
+  z-index: 20;
+  bottom: 40px;
+  left: 60px;
+  font-weight: bolder;
+  text-shadow: 2px 2px 5px rgb(0,0,0);
+  font-size: 50px;
+}

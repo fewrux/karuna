@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import TypedJsController from "./typed_js_controller"
+application.register("typed-js", TypedJsController)
