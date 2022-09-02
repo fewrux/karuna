@@ -9,9 +9,7 @@
 }
 
 #impact-photo {
-  padding: 5px 0 5px 5px;
   border-radius: 12px;
-
 }
 .card-circle {
   transition: all 0.3s ease-in-out;
@@ -22,7 +20,7 @@
 
   &:hover {
     transform: scale(1.1);
-    filter: brightness(1.1);
+    filter: brightness(1.05);
   }
 }
 
@@ -42,15 +40,6 @@
   padding-bottom: 10px;
 }
 
-#banner-title {
-  position: absolute;
-  color: white;
-  z-index: 20;
-  bottom: 40px;
-  left: 60px;
-  font-weight: bolder;
-  text-shadow: 2px 2px 5px rgb(0,0,0);
-}
 
 .map-text p {
     font-weight: 500;
@@ -63,6 +52,10 @@
   height: 90px;
   border-radius: 10px;
   object-fit: cover;
+  &:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
 }
 
 #volunteer-picture-2 {
@@ -70,12 +63,20 @@
   height: 90px;
   border-radius: 10px;
   object-fit: cover;
+  &:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
 }
 
 .volunteer-pics {
   width: 40px !important;
   height: 40px !important;
   border-radius: 50%;
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
 }
 
 // .pic-container {
@@ -86,4 +87,39 @@
 .volunteer-grid {
   width: 160px;
   height: 180px;
+}
+
+#project-title {
+  &:hover {
+    color: $purple;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+  a:hover {
+    color: $purple;
+  }
+}
+
+.volunteer-name {
+  &:hover {
+    color: $purple;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: $purple;
+  }
+}
+
+.modal-image {
+  max-width: 250px;
+  max-height: 200px;
+}
+
+.volunteer-content {
+  margin: 0 30px;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
 }

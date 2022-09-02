@@ -10,6 +10,7 @@
   &:hover {
     color: $purple;
     opacity: 1;
+    text-decoration: none !important;
   }
 }
 
@@ -41,7 +42,7 @@
   opacity: 0.8;
   &:hover {
     opacity: 1;
-    box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
   }
 }
 
