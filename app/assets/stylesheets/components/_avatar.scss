@@ -9,7 +9,8 @@
 }
 
 .avatar-xl {
-  width: 250px;
+  max-height: 250px;
+  max-width: 250px;
   border-radius: 50%;
 }
 
@@ -37,6 +38,11 @@
 @media (max-width: 600px) {
   .avatar {
     width: 30px;
+  }
+
+  .avatar-xl {
+    max-height: 150px;
+    max-width: 150px;
   }
 }
 
