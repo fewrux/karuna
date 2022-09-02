@@ -5,7 +5,7 @@
     <h3 class="mb-3"><i class="fa-solid fa-leaf"></i> <%= project.category %></h3>
     <p class="mb-2"><i class="fa-solid fa-location-dot"></i> <%= project.address %></p>
     <div class="d-flex mb-3">
-      <p class="me-4"><i class="fa-solid fa-calendar-days"></i> <%= project.start_date.strftime("%d %b %Y") %></p>
+      <p class="me-2"><i class="fa-solid fa-calendar-days"></i> <%= project.start_date.strftime("%d %b %Y") %></p>
       <p><i class="fa-solid ms-2 fa-calendar-check"></i> <%= project.end_date.strftime("%d %b %Y") %></p>
     </div>
     <p><%= project.description[0..200] %>...</p>

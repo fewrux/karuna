@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
-      redirect_to @current_user, notice: "Booking created"
+      redirect_to user_path(current_user), notice: "Booking created"
     else
       render "projects/show", status: :unprocessable_entity
     end
