@@ -1,1 +1,35 @@
-<h2>Welcome, <%= current_user.first_name%>!</h2>
+<nav class="b-bottom w-100 mt-5">
+  <div class="d-flex justify-content-center align-items-center ">
+    <p class="mt-4 me-5">Projects</p>
+    <p class="mt-4 me-5">Channels</p>
+    <p class="mt-4 me-5">Skills</p>
+    <p class="mt-4 me-5">Badges</p>
+  </div>
+</nav>
+<main class="mb-5 p-5 pt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-3">
+      <aside>
+        <div class="user-panel-aside d-flex">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/felipecrubio", class: "avatar-xl mb-3" %>
+          <div class="user-bio">
+            <h3><%= current_user.first_name%> <%= current_user.last_name %></h3>
+            <p><i class="fa-solid fa-location-dot"></i> <%= current_user.country %></p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="col-12 col-lg-8">
+      <section>
+        <div class="cards-user b-solid b-radius pb-0">
+          <% current_user.projects.each do |project| %>
+            <div class="mb-5">
+            <%= render 'shared/card_user_project', project: project %>
+            </div>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
