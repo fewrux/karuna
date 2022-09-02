@@ -44,3 +44,9 @@
 .b-bottom {
   border-bottom: 1px solid #dcdcdc;
 }
+
+.hover-purple {
+  &:hover {
+    color: $purple;
+  }
+}
