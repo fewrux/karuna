@@ -9,6 +9,8 @@ class BookingsController < ApplicationController
 
     if @booking.save
       redirect_to user_path(current_user), notice: "Booking created"
+    elsif !user_signed_in?
+      redirect_to new_user_registration_path
     else
       render "projects/show", status: :unprocessable_entity
     end
