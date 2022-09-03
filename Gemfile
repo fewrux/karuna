@@ -78,3 +78,6 @@ group :test do
 end
 
 gem 'faker'
+
+# gem country_select for simple_form 'country' input field
+gem 'country_select'
