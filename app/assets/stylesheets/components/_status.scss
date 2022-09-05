@@ -27,3 +27,28 @@
   background-color: #616161;
   opacity: 0.6;
 }
+.accept-booking {
+  text-decoration: none;
+  color: inherit;
+  color: $light-purple;
+  opacity: 0.5;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: $light-purple;
+    opacity: 1;
+  }
+}
+
+.decline-booking {
+  text-decoration: none;
+  color: inherit;
+  color: #b25b5b;
+  opacity: 0.5;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: #b25b5b;
+    opacity: 1;
+  }
+}

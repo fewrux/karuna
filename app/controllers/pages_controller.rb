@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def test
+    @project = Project.first
+    @organization = Organization.find(1)
+  end
 end

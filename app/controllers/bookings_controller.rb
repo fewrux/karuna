@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[accept decline missed concluded]
+
   def create
     @project = Project.find(params[:project_id])
     @booking = Booking.new(booking_params)
@@ -16,7 +18,51 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    authorize @booking
+
+    if @booking.accepted!
+      redirect_to organization_path(current_organization), notice: 'booking accepted'
+    else
+      redirect_to organization_path(current_organization), notice: 'booking could not be accepted - please try again'
+    end
+  end
+
+  def decline
+    authorize @booking
+
+    if @booking.rejected!
+      redirect_to organization_path(current_organization), notice: 'booking rejected'
+    else
+      redirect_to organization_path(current_organization), notice: 'booking could not be rejected - please try again'
+    end
+  end
+
+  def missed
+    authorize @booking
+
+    if @booking.missed!
+      redirect_to organization_path(current_organization), notice: 'booking rejected'
+    else
+      redirect_to organization_path(current_organization), notice: 'booking could not be set as missed - please try again'
+    end
+  end
+
+  def concluded
+    authorize @booking
+
+    if @booking.concluded!
+      redirect_to organization_path(current_organization), notice: 'booking concluded'
+    else
+      redirect_to organization_path(current_organization), notice: 'booking could not be set as concluded - please try again'
+    end
+  end
+
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :user_id, :project_id)
