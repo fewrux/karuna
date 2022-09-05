@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <%= @organization.projects.each do |project| %>
+    <div class="project-card">
+      <%= project.name %>
+      <%= project.bookings.each do |booking| %>
+        <h2>Request #<%= booking.id %> <%= booking.project.category %></h2>
+          <p><strong><%= "#{booking.user.full_name}" %></strong> wants to volunteer on your <%= booking.project.category %> project from <%= booking.start_date.strftime('%d %b %Y') %> to <%= booking.end_date.strftime('%d %b %Y') %>.</p>
+          <% if booking.status == 'pending' %>
+            <div class="d-flex justify-content-end">
+              <%= link_to accept_booking_path(booking) do %>
+                <i class="fa-solid fa-circle-check accept-booking mx-2"></i>
+              <% end %>
+              <%= link_to decline_booking_path(booking) do %>
+                <i class="fa-solid fa-x decline-booking"></i>
+              <% end %>
+            </div>
+          <% elsif booking.status == 'accepted' %>
+            <div class="status-accepted d-flex justify-content-start align-items-end">
+              <i class="fa-solid fa-check me-1"></i>
+              <p>Booking accepted</p>
+            </div>
+          <% else %>
+            <div class="status-declined d-flex justify-content-start align-items-end">
+              <i class="fa-solid fa-circle-xmark me-1"></i>
+              <p>Booking declined</p>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
