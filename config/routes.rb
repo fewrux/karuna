@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[show]
+
+  resources :organizations, only: %i[show]
 end

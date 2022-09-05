@@ -1,0 +1,7 @@
+<% @user.projects.each do |project| %>
+  <div class="mb-5">
+    <%= link_to project_path(project), class: "hover-purple text-decoration-none" do %>
+      <%= render 'shared/user_project_card', project: project %>
+    <% end %>
+  </div>
+<% end %>
