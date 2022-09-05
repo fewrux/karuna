@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Project Attendance</h2>
-  <%=  project.bookings.each do |booking| %>
+  <%  project.bookings.each do |booking| %>
     <% if booking.status == 'accepted' %>
       <div class="d-flex justify-content-end">
         <%= booking.user.full_name %>

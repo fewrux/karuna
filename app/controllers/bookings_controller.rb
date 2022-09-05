@@ -22,9 +22,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.accepted!
-      redirect_to organization_path(current_organization), notice: 'booking accepted'
+      redirect_to test_path, notice: 'booking accepted'
     else
-      redirect_to organization_path(current_organization), notice: 'booking could not be accepted - please try again'
+      redirect_to test_path, notice: 'booking could not be accepted - please try again'
     end
   end
 
@@ -32,9 +32,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.rejected!
-      redirect_to organization_path(current_organization), notice: 'booking rejected'
+      redirect_to test_path, notice: 'booking rejected'
     else
-      redirect_to organization_path(current_organization), notice: 'booking could not be rejected - please try again'
+      redirect_to test_path, notice: 'booking could not be rejected - please try again'
     end
   end
 
@@ -42,9 +42,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.missed!
-      redirect_to organization_path(current_organization), notice: 'booking rejected'
+      redirect_to test_path, notice: 'booking rejected'
     else
-      redirect_to organization_path(current_organization), notice: 'booking could not be set as missed - please try again'
+      redirect_to test_path, notice: 'booking could not be set as missed - please try again'
     end
   end
 
@@ -52,9 +52,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.concluded!
-      redirect_to organization_path(current_organization), notice: 'booking concluded'
+      redirect_to test_path, notice: 'booking concluded'
     else
-      redirect_to organization_path(current_organization), notice: 'booking could not be set as concluded - please try again'
+      redirect_to test_path, notice: 'booking could not be set as concluded - please try again'
     end
   end
 

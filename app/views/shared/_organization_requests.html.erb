@@ -1,9 +1,9 @@
 <div class="container mt-5">
-  <%= @organization.projects.each do |project| %>
+  <% @organization.projects.each do |project| %>
     <div class="project-card">
       <%= project.name %>
-      <%= project.bookings.each do |booking| %>
-        <h2>Request #<%= booking.id %> <%= booking.project.category %></h2>
+      <% project.bookings.each do |booking| %>
+        <h2>Request #<%= booking.id %> <%= booking.project.name %></h2>
           <p><strong><%= "#{booking.user.full_name}" %></strong> wants to volunteer on your <%= booking.project.category %> project from <%= booking.start_date.strftime('%d %b %Y') %> to <%= booking.end_date.strftime('%d %b %Y') %>.</p>
           <% if booking.status == 'pending' %>
             <div class="d-flex justify-content-end">

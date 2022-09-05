@@ -18,15 +18,15 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  # def reject?
+  def reject?
+    true
+  end
 
-  # end
+  def missed?
+    true
+  end
 
-  # def missed?
-
-  # end
-
-  # def concluded?
-
-  # end
+  def concluded?
+    true
+  end
 end
