@@ -8,6 +8,7 @@
 require 'date'
 require 'faker'
 puts "Cleaning database"
+Booking.destroy_all
 Project.destroy_all
 User.destroy_all
 Organization.destroy_all
@@ -28,6 +29,7 @@ organization.save!
 puts "Created organization"
 
 # create random projects using faker
+continents = %w[Africa Asia North\ America South\ America Europe Oceania Middle\ East]
 categories = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access]
 projects = []
 10.times do
@@ -35,6 +37,7 @@ projects = []
   project.name = Faker::Mountain.range
   project.description = Faker::Quote.jack_handey
   project.category = categories.sample
+  project.continent = continents.sample
   project.address = Faker::Address.street_address
   project.city = Faker::Address.city
   project.available_spots = rand(5..50)
