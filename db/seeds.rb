@@ -29,6 +29,7 @@ puts "Created organization"
 
 # create random projects using faker
 categories = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access]
+projects = []
 10.times do
   project = Project.new
   project.name = Faker::Mountain.range
@@ -41,11 +42,12 @@ categories = %w[Agriculture Animal\ Rescue Construction Education Environmental 
   project.end_date = project.start_date + rand(7..365)
   project.organization = organization
   project.save!
+  projects << project
 end
 
 puts "Created project"
 
-booking = Booking.new(start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), user: user, project:project)
+booking = Booking.new(start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), user: user, project: projects.first)
 booking.save!
 
 puts "Created booking"
