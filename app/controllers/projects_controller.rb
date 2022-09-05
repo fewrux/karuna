@@ -3,6 +3,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = policy_scope(Project)
+    # @projects.each do |project|
+    #   if protect.category == params[:category]
   end
 
   def show
