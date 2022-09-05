@@ -3,3 +3,27 @@
   background-color: $light-orange;
   opacity: 0.6;
 }
+
+.status-accepted {
+  color: white;
+  background-color: $light-green;
+  opacity: 0.6;
+}
+
+.status-declined {
+  color: white;
+  background-color: $light-red;
+  opacity: 0.6;
+}
+
+.status-concluded {
+  color: white;
+  background-color: $light-purple;
+  opacity: 0.6;
+}
+
+.status-missed {
+  color: white;
+  background-color: #616161;
+  opacity: 0.6;
+}
