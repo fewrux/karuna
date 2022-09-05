@@ -1,6 +1,13 @@
 <main class="p-5">
   <div class="container mx-auto">
     <div class="row mt-3 justify-content-center project-cards ">
+          <%= form_with url: projects_path, method: :get, class: "d-flex project-index-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control project-index-search-input",
+          placeholder: "Find a project" %>
+        <%= submit_tag "Search", class: "btn btn-primary project-index-submit" %>
+      <% end %>
       <% @projects.each do |project| %>
         <% if project.end_date > Date.current%>
           <div class="col-11 col-md-10 pt-5">
