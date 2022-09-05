@@ -1,12 +1,12 @@
-.card-user-project {
+.user-project-card {
   background: transparent;
 }
 
-.cards-user {
+.user-project-cards {
   padding: 48px;
 
   div:not(:last-child) {
-    .card-user-project {
+    .user-project-card {
       padding-bottom: 48px;
       border-bottom: 1px solid #dcdcdc;
     }
@@ -20,11 +20,11 @@
 }
 
 @media (max-width: 600px) {
-  .cards-user {
+  .user-project-cards {
     padding: 24px;
   }
 
-  .card-user-project {
+  .user-project-card {
     flex-direction: column;
     height: 100%;
   }

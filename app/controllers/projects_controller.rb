@@ -3,8 +3,14 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = policy_scope(Project)
-    # @projects.each do |project|
-    #   if protect.category == params[:category]
+    # @projects.search_by_category(params[:category])
+    if params[:category].present?
+      @projects = policy_scope(Project).search_by_category(params[:category])
+    elsif params[:continent].present?
+      @projects = policy_scope(Project).search_by_continent(params[:continent])
+    elsif params[:query].present?
+      @projects = policy_scope(Project).search_by_project(params[:query])
+    end
   end
 
   def show

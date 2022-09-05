@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[show]
+
   get "test", to: "pages#test"
+  resources :organizations, only: %i[show]
 
 end
