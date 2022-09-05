@@ -23,4 +23,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[show]
 
   resources :organizations, only: %i[show]
+
+  get "organizations/:id/projects", to: "organizations#projects", as: "organization_projects"
+
+  get "organizations/:id/requests", to: "organizations#requests", as: "organization_requests"
 end
