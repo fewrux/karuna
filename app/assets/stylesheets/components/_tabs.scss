@@ -6,7 +6,7 @@
     border-bottom: 3px solid $light-purple;
   }
 
-  &:focus {
+  &.active {
     border-bottom: 3px solid $purple;
   }
 }
