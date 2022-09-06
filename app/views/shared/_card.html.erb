@@ -1,5 +1,10 @@
 <div class="card-project">
-  <%= image_tag "https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", class: "project-image" %>
+  <% if project.photos.empty? %>
+    <%= image_tag "https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", class: "project-image" %>
+  <% else %>
+    <%= cl_image_tag  project.photos.first.key, crop: :fill, class: "project-image" %>
+  <% end %>
+
   <div class="card-project-infos ">
     <h2 class="mb-2"><%= project.name %></h2>
     <h3 class="mb-3"><i class="fa-solid fa-leaf"></i> <%= project.category %></h3>

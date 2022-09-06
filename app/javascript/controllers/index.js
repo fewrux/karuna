@@ -16,5 +16,11 @@ application.register("hello", HelloController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import OrganizationTabsController from "./organization_tabs_controller"
+application.register("organization-tabs", OrganizationTabsController)
+
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
+
+import UserTabsController from "./user_tabs_controller"
+application.register("user-tabs", UserTabsController)

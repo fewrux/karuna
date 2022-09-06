@@ -14,6 +14,10 @@ class OrganizationPolicy < ApplicationPolicy
     true
   end
 
+  def messages?
+    true
+  end
+
   def requests?
     true
   end

@@ -1,28 +1,34 @@
-<div class="d-flex justify-content-center align-items-end pb-0">
+<div class="tabs d-flex justify-content-center align-items-end pb-0">
   <% if @user %>
-    <%= button_tag class: "tab-link mt-4 me-5 pb-0 mb-0 active" do %>
+    <%= link_to user_projects_path, class: "tab-link mt-4 pb-0 mb-0 active", data: { action: "click->user-tabs#renderProjects", user_tabs_target: "projects" } do %>
       <p class="pb-3 mb-0">Projects</p>
     <% end %>
-    <%= button_tag class: "tab-link mt-4 me-5 pb-0 mb-0" do %>
-      <p class="pb-3 mb-0">Channels</p>
+    <%= link_to user_messages_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->user-tabs#renderMessages", user_tabs_target: "messages" } do %>
+      <p class="pb-3 mb-0">Messages</p>
     <% end %>
-    <%= button_tag class: "tab-link mt-4 me-5 pb-0 mb-0" do %>
+    <%= link_to user_skills_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->user-tabs#renderSkills", user_tabs_target: "skills" } do %>
       <p class="pb-3 mb-0">Skills</p>
     <% end %>
-    <%= button_tag class: "tab-link mt-4 me-5 pb-0 mb-0" do %>
+    <%= link_to user_badges_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->user-tabs#renderBadges", user_tabs_target: "badges" } do %>
       <p class="pb-3 mb-0">Badges</p>
     <% end %>
   <% end %>
 
   <% if @organization %>
-    <%= link_to organization_projects_path, class: "tab-link mt-4 me-5 pb-0 mb-0 active" do %>
+    <%= link_to organization_projects_path, class: "tab-link mt-4 pb-0 mb-0 active", data: { action: "click->organization-tabs#renderProjects", organization_tabs_target: "projects" } do %>
       <p class="pb-3 mb-0">Projects</p>
     <% end %>
-    <%= button_tag class: "tab-link mt-4 me-5 pb-0 mb-0" do %>
-      <p class="pb-3 mb-0">Channels</p>
+    <%= link_to organization_messages_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->organization-tabs#renderMessages", organization_tabs_target: "messages" } do %>
+      <p class="pb-3 mb-0">Messages</p>
     <% end %>
-    <%= link_to organization_requests_path, class: "tab-link mt-4 me-5 pb-0 mb-0" do %>
-      <p class="pb-3 mb-0">Requests</p>
+    <% if @organization == current_organization %>
+      <%= link_to organization_requests_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->organization-tabs#renderRequests", organization_tabs_target: "requests" } do %>
+        <p class="pb-3 mb-0">Requests</p>
+      <% end %>
+    <% else %>
+      <%= link_to organization_requests_path, class: "tab-link mt-4 pb-0 mb-0 d-none", data: { action: "click->organization-tabs#renderRequests", organization_tabs_target: "requests" } do %>
+        <p class="pb-3 mb-0">Requests</p>
+      <% end %>
     <% end %>
   <% end %>
 </div>

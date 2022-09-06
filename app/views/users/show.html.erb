@@ -1,21 +1,23 @@
-<nav class="b-bottom w-100 mt-5 pb-0">
-  <%= render 'shared/tabs' %>
-</nav>
+<div data-controller="user-tabs">
+  <nav class="b-bottom w-100 mt-5 pb-0">
+    <%= render 'shared/tabs' %>
+  </nav>
 
-<main class="mb-5 p-5 pt-4">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-3">
-      <aside>
-        <%= render 'shared/user_panel', user: @user %>
-      </aside>
-    </div>
+  <main class="mb-5 p-5 pt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-3">
+        <aside>
+          <%= render 'shared/user_panel', user: @user %>
+        </aside>
+      </div>
 
-    <div class="col-12 col-lg-8">
-      <section>
-        <div class="user-project-cards b-solid b-radius pb-0">
-          <%= render 'shared/user_cards', user: @user %>
-        </div>
-      </section>
+      <div class="col-12 col-lg-8">
+        <section>
+          <div data-user-tabs-target="content" class="user-project-cards b-solid b-radius pb-0">
+            <%= render 'shared/user_cards', user: @user %>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
-</main>
+  </main>
+</div>
