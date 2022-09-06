@@ -1,1 +1,34 @@
-<h1>Hello <%= @organization.name %></h1>
+<div class="container mt-5">
+  <% @organization.projects.each do |project| %>
+    <% if project.bookings.present? %>
+      <% project.bookings.each do |booking| %>
+        <div class="container project-card-request d-flex">
+          <%= image_tag 'https://images.unsplash.com/photo-1509973301519-9ca52aa49658?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80', class:"request-picture" %>
+          <div class="request-card-info">
+            <h2><%= project.name %></h2>
+              <p><strong><%= link_to "#{booking.user.full_name}", user_path(booking.user) %></strong> wants to volunteer on your <%= booking.project.category %> project from <%= booking.start_date.strftime('%d %b %Y') %> to <%= booking.end_date.strftime('%d %b %Y') %>.</p>
+              <% if booking.status == 'pending' %>
+                <div class="d-flex justify-content-end">
+                  <%= link_to accept_booking_path(booking) do %>
+                    <i class="fa-solid fa-circle-check accept-booking mx-2"></i>
+                  <% end %>
+                  <%= link_to decline_booking_path(booking) do %>
+                    <i class="fa-solid fa-x decline-booking"></i>
+                  <% end %>
+                </div>
+              <% elsif booking.status == 'accepted' %>
+              <div class="d-flex justify-content-end">
+               <span class="status-accepted mb-0 py-1 px-3 b-solid b-radius">Accepted</span>
+              </div>
+              <% else %>
+              <div class="d-flex justify-content-end">
+                <span class="status-declined mb-0 py-1 px-3 b-solid b-radius">Declined</span>
+              </div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<%# comment to push %>
+</div>

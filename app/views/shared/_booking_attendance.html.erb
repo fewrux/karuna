@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Project Attendance</h2>
+  <%  project.bookings.each do |booking| %>
+    <% if booking.status == 'accepted' %>
+      <div class="d-flex justify-content-end">
+        <%= booking.user.full_name %>
+        <%= link_to concluded_booking_path(booking) do %>
+          <i class="fa-solid fa-circle-check status-concluded mx-2"></i>
+        <% end %>
+        <%= link_to missed_booking_path(booking) do %>
+          <i class="fa-solid fa-x status-missed"></i>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
