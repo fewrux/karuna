@@ -46,9 +46,9 @@ projects = []
   project.start_date = Faker::Date.between(from: '2021-01-21', to: '2024-12-12')
   project.end_date = project.start_date + rand(7..365)
   project.organization = organization
-  file = URI.open("link")
-  project.photos.first.attach(io: file, filename: "myimage.png", content_type: "image/png")
-  project.save!
+  # file = URI.open("https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+  # project.photos.attach(io: file, filename: "myimage.png", content_type: "image/png")
+  # project.save!
   projects << project
 end
 
