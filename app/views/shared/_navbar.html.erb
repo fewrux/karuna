@@ -17,7 +17,7 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "About us", '#', class: "nav-link" %>
+            <%= link_to "About us", '#about', class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Projects", projects_path, class: "nav-link" %>
@@ -41,7 +41,7 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "About us", '#', class: "nav-link" %>
+            <%= link_to "About us", '#about', class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Projects", projects_path, class: "nav-link" %>
@@ -58,10 +58,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "About us", '#', class: "nav-link", target: :_blank %>
+            <%= link_to "About us", '#about', class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Donate", '#', class: "nav-link", target: :_blank %>
+            <%= link_to "Donate", '/', class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Become a partner", new_organization_session_path, class: "nav-link" %>
