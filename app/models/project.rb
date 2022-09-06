@@ -6,7 +6,7 @@ class Project < ApplicationRecord
   CATEGORIES = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access]
 
   validates :category, inclusion: { in: CATEGORIES }
-  validades :available_spots, numericality: { greater_than: 0 }
+  validates :available_spots, numericality: { greater_than: 0 }
 
   include PgSearch::Model
   pg_search_scope :search_by_category,
