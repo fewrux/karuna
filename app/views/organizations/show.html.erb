@@ -1,13 +1,15 @@
-<header>
-  <%= render 'shared/organization_banner', organization: @organization %>
+<div data-controller="organization-tabs">
+  <header>
+    <%= render 'shared/organization_banner', organization: @organization %>
 
-  <%= render 'shared/organization_about', organization: @organization %>
+    <%= render 'shared/organization_about', organization: @organization %>
 
-  <nav data-controller="organization-tabs" class="b-bottom w-100 mt-2 pb-0">
-    <%= render 'shared/tabs' %>
-  </nav>
-</header>
+    <nav class="b-bottom w-100 mt-2 pb-0">
+      <%= render 'shared/tabs' %>
+    </nav>
+  </header>
 
-<main class="mt-2 mb-5 p-5">
-  <%= render 'shared/organization_project_cards', organization: @organization %>
-</main>
+  <main data-organization-tabs-target="main" class="mt-2 mb-5 p-5">
+    <%= render 'shared/organization_project_cards', organization: @organization %>
+  </main>
+</div>

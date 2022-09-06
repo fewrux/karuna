@@ -11,6 +11,10 @@ class OrganizationsController < ApplicationController
 
   def requests
     authorize @organization
+    respond_to do |format|
+      format.html
+      format.text { render partial: "shared/organization_requests", locals: { organization: @organization }, formats: [:html] }
+    end
   end
 
   private

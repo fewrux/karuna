@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="organization-tabs"
 export default class extends Controller {
-  static targets = ["projects", "channels", "requests"]
+  static targets = ["main", "projects", "channels", "requests"]
 
   connect() {
     console.log("hello from tabs controller");
@@ -24,5 +24,13 @@ export default class extends Controller {
     this.projectsTarget.classList.remove("active");
     this.channelsTarget.classList.remove("active");
     this.requestsTarget.classList.add("active");
+    console.log(this.requestsTarget.action);
+
+    const url = `${this.requestsTarget.action}`
+    fetch(url, { headers: { "Accept": "text/plain" } })
+      .then(response => response.text())
+      .then((data) => {
+        this.mainTarget.innerHTML = data
+      })
   }
 }
