@@ -7,29 +7,27 @@ class OrganizationsController < ApplicationController
 
   def projects
     authorize @organization
-    respond_to do |format|
-      format.html
-      format.text { render partial: "organizations/organization_project_cards", locals: { organization: @organization }, formats: [:html] }
-    end
+    render_partial("project_cards")
   end
 
   def messages
     authorize @organization
-    respond_to do |format|
-      format.html
-      format.text { render partial: "organizations/organization_messages", locals: { organization: @organization }, formats: [:html] }
-    end
+    render_partial("messages")
   end
 
   def requests
     authorize @organization
-    respond_to do |format|
-      format.html
-      format.text { render partial: "organizations/organization_requests", locals: { organization: @organization }, formats: [:html] }
-    end
+    render_partial("requests")
   end
 
   private
+
+  def render_partial(content)
+    respond_to do |format|
+      format.html
+      format.text { render partial: "organizations/organization_#{content}", locals: { organization: @organization }, formats: [:html] }
+    end
+  end
 
   def other_or_no_organization
     @organization != current_organization || current_organization.nil?

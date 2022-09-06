@@ -1,10 +1,37 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show]
+  before_action :set_user, only: %i[show projects messages skills badges]
   def show
     authorize @user
   end
 
+  def projects
+    authorize @user
+    render_partial("cards")
+  end
+
+  def messages
+    authorize @user
+    render_partial("messages")
+  end
+
+  def skills
+    authorize @user
+    render_partial("skills")
+  end
+
+  def badges
+    authorize @user
+    render_partial("badges")
+  end
+
   private
+
+  def render_partial(content)
+    respond_to do |format|
+      format.html
+      format.text { render partial: "shared/user_#{content}", locals: { user: @user }, formats: [:html] }
+    end
+  end
 
   def other_or_no_user
     @user != current_user || current_user.nil?

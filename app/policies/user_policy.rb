@@ -9,4 +9,20 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def projects?
+    true
+  end
+
+  def messages?
+    true
+  end
+
+  def skills?
+    true
+  end
+
+  def badges?
+    true
+  end
 end
