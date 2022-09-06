@@ -1,7 +1,7 @@
 <% @user.projects.each do |project| %>
   <div class="mb-5">
     <%= link_to project_path(project), class: "hover-purple text-decoration-none" do %>
-      <%= render 'shared/user_project_card', project: project %>
+      <%= render 'shared/user_project_card', project: project, booking: project.bookings.find_by(user: current_user) %>
     <% end %>
   </div>
 <% end %>

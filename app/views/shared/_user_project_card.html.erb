@@ -14,7 +14,7 @@
       <p class="mb-2 mid-gray"><%= project.description[0..120] %>...</p>
     </div>
     <div class="d-flex">
-      <span class="status-pending mt-3 mb-0 py-1 px-4 b-solid b-radius">Pending</span>
+      <%= render 'shared/status', booking: booking %>
     </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  def reject?
+  def decline?
     true
   end
 

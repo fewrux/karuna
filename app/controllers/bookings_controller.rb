@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[accept decline missed concluded]
+  before_action :set_organization, only: %i[accept decline missed concluded]
 
   def create
     @project = Project.find(params[:project_id])
@@ -20,21 +21,20 @@ class BookingsController < ApplicationController
 
   def accept
     authorize @booking
-
     if @booking.accepted!
-      redirect_to test_path, notice: 'booking accepted'
+      redirect_to organization_requests_path(@organization), notice: 'booking accepted'
     else
-      redirect_to test_path, notice: 'booking could not be accepted - please try again'
+      redirect_to organization_requests_path(@organization), notice: 'booking could not be accepted - please try again'
     end
   end
 
   def decline
     authorize @booking
 
-    if @booking.rejected!
-      redirect_to test_path, notice: 'booking rejected'
+    if @booking.declined!
+      redirect_to organization_requests_path(@organization), notice: 'booking rejected'
     else
-      redirect_to test_path, notice: 'booking could not be rejected - please try again'
+      redirect_to organization_requests_path(@organization), notice: 'booking could not be rejected - please try again'
     end
   end
 
@@ -42,9 +42,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.missed!
-      redirect_to test_path, notice: 'booking rejected'
+      redirect_to organization_requests_path(@organization), notice: 'booking declined'
     else
-      redirect_to test_path, notice: 'booking could not be set as missed - please try again'
+      redirect_to organization_requests_path(@organization), notice: 'booking could not be declined - please try again'
     end
   end
 
@@ -52,9 +52,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.concluded!
-      redirect_to test_path, notice: 'booking concluded'
+      redirect_to organization_requests_path(@organization), notice: 'booking concluded'
     else
-      redirect_to test_path, notice: 'booking could not be set as concluded - please try again'
+      redirect_to organization_requests_path(@organization), notice: 'booking could not be set as concluded - please try again'
     end
   end
 
@@ -62,6 +62,11 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_organization
+    set_booking
+    @organization = @booking.project.organization
   end
 
   def booking_params
