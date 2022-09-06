@@ -51,6 +51,8 @@ class ProjectsController < ApplicationController
                                     :city,
                                     :available_spots,
                                     :start_date,
-                                    :end_date)
+                                    :end_date,
+                                    photos: []
+                                   )
   end
 end
