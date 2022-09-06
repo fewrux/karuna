@@ -18,11 +18,11 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
-  def edit
-    return update
+  def edit?
+    return update?
   end
 
-  def update
-    record.organization == current_organization
+  def update?
+    true
   end
 end

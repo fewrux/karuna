@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit]
+  before_action :set_project, only: [:show, :edit, :update]
 
   def index
     @projects = policy_scope(Project)
@@ -23,8 +23,7 @@ class ProjectsController < ApplicationController
     @project.organization = current_organization
 
     authorize @project
-
-    if @project.save!
+    if @project.save
       redirect_to @project, notice: "Project was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -38,6 +37,7 @@ class ProjectsController < ApplicationController
   def update
     authorize @project
     @project.update(project_params)
+    redirect_to organization_path(current_organization)
   end
 
   def show
