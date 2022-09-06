@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :organization
   has_many :bookings
+  has_many_attached :photos
 
   CATEGORIES = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access]
 
