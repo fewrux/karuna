@@ -7,6 +7,10 @@ class OrganizationsController < ApplicationController
 
   def projects
     authorize @organization
+    respond_to do |format|
+      format.html
+      format.text { render partial: "shared/organization_projects", locals: { organization: @organization }, formats: [:html] }
+    end
   end
 
   def requests

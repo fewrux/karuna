@@ -8,25 +8,51 @@ export default class extends Controller {
     console.log("hello from tabs controller");
   }
 
-  renderProjects() {
+  setProjectsActive() {
     this.projectsTarget.classList.add("active");
     this.channelsTarget.classList.remove("active");
     this.requestsTarget.classList.remove("active");
   }
 
-  renderChannels() {
+  setChannelsActive() {
     this.projectsTarget.classList.remove("active");
     this.channelsTarget.classList.add("active");
     this.requestsTarget.classList.remove("active");
   }
 
-  renderRequests() {
+  setRequestsActive() {
     this.projectsTarget.classList.remove("active");
     this.channelsTarget.classList.remove("active");
     this.requestsTarget.classList.add("active");
-    console.log(this.requestsTarget.action);
+  }
 
-    const url = `${this.requestsTarget.action}`
+  renderProjects(event) {
+    event.preventDefault();
+
+    this.setProjectsActive();
+
+    const url = `${this.projectsTarget.href}`
+    fetch(url, { headers: { "Accept": "text/plain" } })
+      .then(response => response.text())
+      .then((data) => {
+        this.mainTarget.innerHTML = data
+      })
+  }
+
+  renderChannels(event) {
+    event.preventDefault();
+
+    this.setChannelsActive();
+  }
+
+  renderRequests(event) {
+    event.preventDefault();
+
+    this.setRequestsActive();
+
+    console.log(this.requestsTarget.href);
+
+    const url = `${this.requestsTarget.href}`
     fetch(url, { headers: { "Accept": "text/plain" } })
       .then(response => response.text())
       .then((data) => {
