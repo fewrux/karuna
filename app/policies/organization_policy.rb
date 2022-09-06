@@ -14,7 +14,7 @@ class OrganizationPolicy < ApplicationPolicy
     true
   end
 
-  def channels?
+  def messages?
     true
   end
 

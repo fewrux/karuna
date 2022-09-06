@@ -18,3 +18,6 @@ application.register("organization-tabs", OrganizationTabsController)
 
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
+
+import UserTabsController from "./user_tabs_controller"
+application.register("user-tabs", UserTabsController)
