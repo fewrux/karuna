@@ -54,8 +54,12 @@ end
 
 puts "Created project"
 
-booking = Booking.new(start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), user: user, project: projects.first)
-booking.save!
+first_booking = Booking.new(start_date:Date.new(2001,2,3), end_date:Date.new(2001,2,3), user: user, project: projects.first)
+second_booking = Booking.new(start_date:Date.new(2002,2,3), end_date:Date.new(2002,2,3), user: user, project: projects.first)
+third_booking = Booking.new(start_date:Date.new(2003,2,3), end_date:Date.new(2003,2,3), user: user, project: projects.first)
+first_booking.save!
+second_booking.save!
+third_booking.save!
 
 puts "Created booking"
 

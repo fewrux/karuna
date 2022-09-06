@@ -129,6 +129,43 @@
   color: $purple;
 }
 
+.project-card-request {
+  overflow: hidden;
+  height: 120px;
+  width: 500px;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  padding: 0;
+
+  span {
+    font-size: 10px;
+  }
+}
+
+.request-card-info {
+  padding: 8px;
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}
+
+.request-picture {
+  height: 120px;
+  max-width: 30%;
+}
+
+
 @media (max-width: 768px) {
   .card-project .avatars {
     width: 150px;

@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :projects, through: :bookings
+  has_one_attached :photo
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

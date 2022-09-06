@@ -33,6 +33,7 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { class: "border-purple b-radius", autocomplete: "new-password" } %>
+        <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius"} %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class: "btn btn-lg btn-outline-light b-radius w-100 mt-3" %>
