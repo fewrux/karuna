@@ -4,4 +4,5 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id]) if current_user.nil?
     authorize @user
   end
+
 end
