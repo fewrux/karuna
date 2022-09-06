@@ -9,4 +9,12 @@ class OrganizationPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def projects?
+    true
+  end
+
+  def requests?
+    true
+  end
 end
