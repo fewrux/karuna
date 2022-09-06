@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: :show
+  before_action :set_project, only: [:show, :edit]
 
   def index
     @projects = policy_scope(Project)
@@ -11,12 +11,6 @@ class ProjectsController < ApplicationController
     elsif params[:query].present?
       @projects = policy_scope(Project).search_by_project(params[:query])
     end
-  end
-
-  def show
-    authorize @project
-    @booking = Booking.new
-    authorize @booking
   end
 
   def new
@@ -35,6 +29,19 @@ class ProjectsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    authorize @project
+  end
+
+  def update
+  end
+
+  def show
+    authorize @project
+    @booking = Booking.new
+    authorize @booking
   end
 
   private
