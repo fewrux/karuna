@@ -20,7 +20,18 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  resources :bookings, only: [] do
+    member do
+      get :accept
+      get :decline
+      get :concluded
+      get :missed
+    end
+  end
+
   resources :users, only: %i[show]
+
+  get "test", to: "pages#test"
 
   resources :organizations, only: %i[show]
 
