@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="organization-tabs"
+// Connects to data-controller="user-tabs"
 export default class extends Controller {
-  static targets = ["main", "projects", "messages", "requests"]
+  static targets = ["content", "projects", "messages", "skills", "badges"]
 
   connect() {
     console.log("hello from organization tabs controller");
@@ -11,19 +11,29 @@ export default class extends Controller {
   setProjectsActive() {
     this.projectsTarget.classList.add("active");
     this.messagesTarget.classList.remove("active");
-    this.requestsTarget.classList.remove("active");
+    this.skillsTarget.classList.remove("active");
+    this.badgesTarget.classList.remove("active");
   }
 
   setMessagesActive() {
     this.projectsTarget.classList.remove("active");
     this.messagesTarget.classList.add("active");
-    this.requestsTarget.classList.remove("active");
+    this.skillsTarget.classList.remove("active");
+    this.badgesTarget.classList.remove("active");
   }
 
-  setRequestsActive() {
+  setSkillsActive() {
     this.projectsTarget.classList.remove("active");
     this.messagesTarget.classList.remove("active");
-    this.requestsTarget.classList.add("active");
+    this.skillsTarget.classList.add("active");
+    this.badgesTarget.classList.remove("active");
+  }
+
+  setBadgesActive() {
+    this.projectsTarget.classList.remove("active");
+    this.messagesTarget.classList.remove("active");
+    this.skillsTarget.classList.remove("active");
+    this.badgesTarget.classList.add("active");
   }
 
   renderProjects(event) {
@@ -35,7 +45,7 @@ export default class extends Controller {
     fetch(url, { headers: { "Accept": "text/plain" } })
       .then(response => response.text())
       .then((data) => {
-        this.mainTarget.innerHTML = data
+        this.contentTarget.innerHTML = data
       })
   }
 
@@ -48,20 +58,33 @@ export default class extends Controller {
     fetch(url, { headers: { "Accept": "text/plain" } })
       .then(response => response.text())
       .then((data) => {
-        this.mainTarget.innerHTML = data
+        this.contentTarget.innerHTML = data
       })
   }
 
-  renderRequests(event) {
+  renderSkills(event) {
     event.preventDefault();
 
-    this.setRequestsActive();
+    this.setSkillsActive();
 
-    const url = `${this.requestsTarget.href}`
+    const url = `${this.skillsTarget.href}`
     fetch(url, { headers: { "Accept": "text/plain" } })
       .then(response => response.text())
       .then((data) => {
-        this.mainTarget.innerHTML = data
+        this.contentTarget.innerHTML = data
+      })
+  }
+
+  renderBadges(event) {
+    event.preventDefault();
+
+    this.setBadgesActive();
+
+    const url = `${this.badgesTarget.href}`
+    fetch(url, { headers: { "Accept": "text/plain" } })
+      .then(response => response.text())
+      .then((data) => {
+        this.contentTarget.innerHTML = data
       })
   }
 }
