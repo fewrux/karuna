@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :organization
   has_many :bookings
+  has_one :chatroom
+  after_create :set_chatroom
 
   CATEGORIES = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access]
 
@@ -25,4 +27,11 @@ class Project < ApplicationRecord
     tsearch: { prefix: true }
   }
 
+  private
+
+  def set_chatroom
+    @chatroom = Chatroom.new(name: self.name)
+    @chatroom.project = self
+    @chatroom.save!
+  end
 end

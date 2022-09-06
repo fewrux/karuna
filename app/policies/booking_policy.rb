@@ -11,22 +11,25 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user_booking = record.project.bookings.select do |booking|
+                      booking.user == user
+    end
+    user_booking.empty?
   end
 
   def accept?
-    true
+    record.project.organization == user
   end
 
   def decline?
-    true
+    record.project.organization == user
   end
 
   def missed?
-    true
+    record.project.organization == user
   end
 
   def concluded?
-    true
+    record.project.organization == user
   end
 end

@@ -89,17 +89,6 @@
   height: 180px;
 }
 
-#project-title {
-  &:hover {
-    color: $purple;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-  }
-  a:hover {
-    color: $purple;
-  }
-}
-
 .volunteer-name {
   &:hover {
     color: $purple;

@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_them
 
+  def pundit_user
+    if organization_signed_in?
+      current_organization
+    elsif user_signed_in?
+      current_user
+    end
+  end
 
   protected
 

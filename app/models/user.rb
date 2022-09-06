@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :projects, through: :bookings
+  has_many :messages
 
   def full_name
     "#{first_name} #{last_name}"
