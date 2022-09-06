@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: %i[show projects requests]
+  before_action :set_organization, only: %i[show projects channels requests]
 
   def show
     authorize @organization
@@ -9,7 +9,15 @@ class OrganizationsController < ApplicationController
     authorize @organization
     respond_to do |format|
       format.html
-      format.text { render partial: "shared/organization_projects", locals: { organization: @organization }, formats: [:html] }
+      format.text { render partial: "organizations/organization_project_cards", locals: { organization: @organization }, formats: [:html] }
+    end
+  end
+
+  def channels
+    authorize @organization
+    respond_to do |format|
+      format.html
+      format.text { render partial: "organizations/organization_channels", locals: { organization: @organization }, formats: [:html] }
     end
   end
 
@@ -17,7 +25,7 @@ class OrganizationsController < ApplicationController
     authorize @organization
     respond_to do |format|
       format.html
-      format.text { render partial: "shared/organization_requests", locals: { organization: @organization }, formats: [:html] }
+      format.text { render partial: "organizations/organization_requests", locals: { organization: @organization }, formats: [:html] }
     end
   end
 

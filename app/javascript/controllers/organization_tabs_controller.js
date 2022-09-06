@@ -43,6 +43,13 @@ export default class extends Controller {
     event.preventDefault();
 
     this.setChannelsActive();
+
+    const url = `${this.channelsTarget.href}`
+    fetch(url, { headers: { "Accept": "text/plain" } })
+      .then(response => response.text())
+      .then((data) => {
+        this.mainTarget.innerHTML = data
+      })
   }
 
   renderRequests(event) {

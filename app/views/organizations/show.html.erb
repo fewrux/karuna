@@ -1,8 +1,8 @@
 <div data-controller="organization-tabs">
   <header>
-    <%= render 'shared/organization_banner', organization: @organization %>
+    <%= render 'organizations/organization_banner', organization: @organization %>
 
-    <%= render 'shared/organization_about', organization: @organization %>
+    <%= render 'organizations/organization_about', organization: @organization %>
 
     <nav class="b-bottom w-100 mt-2 pb-0">
       <%= render 'shared/tabs' %>
@@ -10,6 +10,6 @@
   </header>
 
   <main data-organization-tabs-target="main" class="mt-2 mb-5 p-5">
-    <%= render 'shared/organization_project_cards', organization: @organization %>
+    <%= render 'organizations/organization_project_cards', organization: @organization %>
   </main>
 </div>
