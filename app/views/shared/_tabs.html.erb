@@ -18,11 +18,13 @@
     <%= link_to organization_projects_path, class: "tab-link mt-4 me-5 pb-0 mb-0 active", data: { action: "click->organization-tabs#renderProjects", organization_tabs_target: "projects" } do %>
       <p class="pb-3 mb-0">Projects</p>
     <% end %>
-    <%= link_to organization_channels_path, class: "tab-link mt-4 me-5 pb-0 mb-0", data: { action: "click->organization-tabs#renderChannels", organization_tabs_target: "channels" } do %>
-      <p class="pb-3 mb-0">Channels</p>
+    <%= link_to organization_messages_path, class: "tab-link mt-4 me-5 pb-0 mb-0", data: { action: "click->organization-tabs#renderMessages", organization_tabs_target: "messages" } do %>
+      <p class="pb-3 mb-0">Messages</p>
     <% end %>
-    <%= link_to organization_requests_path, class: "tab-link mt-4 me-5 pb-0 mb-0", data: { action: "click->organization-tabs#renderRequests", organization_tabs_target: "requests" } do %>
-      <p class="pb-3 mb-0">Requests</p>
+    <% if @organization == current_organization %>
+      <%= link_to organization_requests_path, class: "tab-link mt-4 me-5 pb-0 mb-0", data: { action: "click->organization-tabs#renderRequests", organization_tabs_target: "requests" } do %>
+        <p class="pb-3 mb-0">Requests</p>
+      <% end %>
     <% end %>
   <% end %>
 </div>

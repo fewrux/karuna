@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: %i[show projects channels requests]
+  before_action :set_organization, only: %i[show projects messages requests]
 
   def show
     authorize @organization
@@ -13,11 +13,11 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  def channels
+  def messages
     authorize @organization
     respond_to do |format|
       format.html
-      format.text { render partial: "organizations/organization_channels", locals: { organization: @organization }, formats: [:html] }
+      format.text { render partial: "organizations/organization_messages", locals: { organization: @organization }, formats: [:html] }
     end
   end
 
@@ -31,9 +31,16 @@ class OrganizationsController < ApplicationController
 
   private
 
+  def other_or_no_organization
+    @organization != current_organization || current_organization.nil?
+  end
+
   def set_organization
-    @organization = current_organization if current_organization.present?
-    @organization = Organization.find_by(id: params[:id]) if current_organization.nil?
+    if other_or_no_organization
+      @organization = Organization.find_by(id: params[:id])
+    elsif current_organization
+      @organization = current_organization
+    end
     redirect_to root_path if @organization.nil?
   end
 end
