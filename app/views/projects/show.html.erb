@@ -5,21 +5,20 @@
 <div class="container">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-      <% @projects.photos.each do |photo| %>
 
-
-
-
-        <div class="carousel-item active">
-          <img src="https://images.unsplash.com/photo-1509973301519-9ca52aa49658?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1614531341773-3bff8b7cb3fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1504173010664-32509aeebb62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1427&q=80" class="d-block w-100" alt="...">
-        </div>
+        <% if @project.photos.empty? %>
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1504173010664-32509aeebb62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1427&q=80" class="d-block w-100" alt="...">
+          </div>
+        <% else %>
+          <% @project.photos.each do |photo| %>
+            <div class="carousel-item active">
+              <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
+
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -30,11 +29,6 @@
       </button>
     </div>
  </div>
-
-
-
-
-
 
 <div class="container project-infos">
   <h2><i class="fa-solid fa-leaf me-3 ms-2 mt-4"></i><strong><%= @project.category %></strong></h2>

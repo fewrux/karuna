@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'date'
 require 'faker'
+require "open-uri"
+
 puts "Cleaning database"
 Booking.destroy_all
 Project.destroy_all
@@ -44,6 +46,8 @@ projects = []
   project.start_date = Faker::Date.between(from: '2021-01-21', to: '2024-12-12')
   project.end_date = project.start_date + rand(7..365)
   project.organization = organization
+  file = URI.open("link")
+  project.photos.first.attach(io: file, filename: "myimage.png", content_type: "image/png")
   project.save!
   projects << project
 end
