@@ -1,9 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-lewagon">
   <div class="container-fluid">
     <div class="d-flex align-items-center">
-    <%= link_to root_path do %>
-      <h2 class="navbar-title font-weight-bold m-0">Karuna</h2>
-    <% end %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/5168/5168452.png" %>
+      <% end %>
+      <%= link_to root_path do %>
+        <h2 class="navbar-title font-weight-bold m-0">Karuna</h2>
+      <% end %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

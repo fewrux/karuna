@@ -12,6 +12,11 @@
     opacity: 1;
     text-decoration: none !important;
   }
+
+  &:focus {
+    background-color:white;
+    border: none;
+  }
 }
 
 .btn-purple {
@@ -23,7 +28,13 @@
   &:hover {
     color: white;
     background-color: #6c3ccc;
-    border: 1px solid #6c3ccc;;
+    border: 1px solid #6c3ccc;
+  }
+
+  &:focus {
+    background-color:#6c3ccc;
+    color: white;
+    border: 1px solid #6c3ccc;
   }
 }
 

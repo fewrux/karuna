@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@project.name} · #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @project.description %>
+<% content_for :meta_image, cl_image_path(@project.photo.path) %>
+
 <div class="container showpage-title mb-3">
   <h1 class= "project-header ms-0"><strong> <%= @project.name %></strong></h1>
 </div>
@@ -11,10 +15,16 @@
             <img src="https://images.unsplash.com/photo-1504173010664-32509aeebb62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1427&q=80" class="d-block w-100" alt="...">
           </div>
         <% else %>
-          <% @project.photos.each do |photo| %>
-            <div class="carousel-item active">
-              <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
-            </div>
+          <% @project.photos.each_with_index do |photo, index| %>
+            <% if index == 0 %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
+              </div>
+            <% else %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -78,26 +88,28 @@
     </div>
   </div>
 
-<% if policy(@chatroom).show? %>
-  <div class="container mb-5 d-flex justify-content-center">
-    <div class="d-flex flex-column align-items-center text-center justify-content-around chatroom-div">
-      <h2>You're already part of this family!<br>Wanna share something? </h2>
-      <%= link_to "JOIN THE CHAT", chatroom_path(@chatroom), class:'btn btn-purple w-50' %>
+<% if user_signed_in? || organization_signed_in? %>
+  <% if policy(@chatroom).show? %>
+    <div class="container mb-5 d-flex justify-content-center">
+      <div class="d-flex flex-column align-items-center text-center justify-content-around chatroom-div">
+        <h2>You're already part of this family!<br>Wanna share something? </h2>
+        <%= link_to "JOIN THE CHAT", chatroom_path(@chatroom), class:'btn btn-purple w-50' %>
+      </div>
     </div>
-  </div>
-<% else %>
-  <div class="container mb-5">
-    <div class="d-flex justify-content-center">
-      <section id="bookings" class="background my-5">
-        <div class="offer-info container p-5 border form-show-page">
-          <h3 class="text-center mb-3">Join the team</h3>
-          <%= simple_form_for [@project, @booking], data: { controller: "flatpickr" } do |f| %>
-            <%= f.input :start_date, label: false, placeholder: 'Start date', input_html: { class: "border-green b-radius my-5", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
-            <%= f.input :end_date, label: false, placeholder: 'End date', input_html: { class: "border-green b-radius mb-4", data: { flatpickr_target: "secondRangeInput" } }, as: :string %>
-            <%= f.submit "Volunteer", class: "btn btn-lg btn-block btn-purple w-100 mt-4" %>
-          <% end %>
-        </div>
-      </section>
+  <% else %>
+    <div class="container mb-5">
+      <div class="d-flex justify-content-center">
+        <section id="bookings" class="background my-5">
+          <div class="offer-info container p-5 border form-show-page">
+            <h3 class="text-center mb-3">Join the team</h3>
+            <%= simple_form_for [@project, @booking], data: { controller: "flatpickr" } do |f| %>
+              <%= f.input :start_date, label: false, placeholder: 'Start date', input_html: { class: "border-green b-radius my-5", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
+              <%= f.input :end_date, label: false, placeholder: 'End date', input_html: { class: "border-green b-radius mb-4", data: { flatpickr_target: "secondRangeInput" } }, as: :string %>
+              <%= f.submit "Volunteer", class: "btn btn-lg btn-block btn-purple w-100 mt-4" %>
+            <% end %>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
