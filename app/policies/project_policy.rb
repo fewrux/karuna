@@ -17,4 +17,12 @@ class ProjectPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit?
+    return update?
+  end
+
+  def update?
+    true
+  end
 end
