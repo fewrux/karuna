@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@project.name} · #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @project.description %>
-<% content_for :meta_image, cl_image_path(@project.photo.path) %>
+<%# <% content_for :meta_image, cl_image_path(@project.photo.path) %> %>
 
 <div class="container showpage-title mb-3">
   <h1 class= "project-header ms-0"><strong> <%= @project.name %></strong></h1>

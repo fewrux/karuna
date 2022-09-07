@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@organization.name} · #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @organization.about %>
-<% content_for :meta_image, cl_image_path(@organization.photo.path) %>
+<%# <% content_for :meta_image, cl_image_path(@organization.photo.path) %> %>
 
 <div data-controller="organization-tabs">
   <header>
