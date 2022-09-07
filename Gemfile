@@ -78,6 +78,8 @@ group :test do
   gem "webdrivers"
 end
 
+gem "dotenv-rails", groups: [:development, :test]
+
 gem 'faker'
 
 gem 'rest-client', '~> 2.1'
