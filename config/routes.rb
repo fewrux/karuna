@@ -52,4 +52,8 @@ Rails.application.routes.draw do
   get "organizations/:id/messages", to: "organizations#messages", as: "organization_messages"
 
   get "organizations/:id/requests", to: "organizations#requests", as: "organization_requests"
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end

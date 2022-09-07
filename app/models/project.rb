@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :organization
   has_many :bookings
+  has_one :chatroom
+  after_create :set_chatroom
   has_many_attached :photos
 
   CATEGORIES = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access]
@@ -22,8 +24,16 @@ class Project < ApplicationRecord
                   }
 
   pg_search_scope :search_by_project,
-                  against: [:name, :description, :category, :address, :city],
-                  using: {
-                    tsearch: { prefix: true }
-                  }
+  against: [ :name, :description, :category, :address, :city ],
+  using: {
+    tsearch: { prefix: true }
+  }
+
+  private
+
+  def set_chatroom
+    @chatroom = Chatroom.new(name: self.name)
+    @chatroom.project = self
+    @chatroom.save!
+  end
 end

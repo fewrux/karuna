@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @booking = Booking.new
     authorize @booking
+    @chatroom = Chatroom.find_by(name: @project.name)
   end
 
   def new
