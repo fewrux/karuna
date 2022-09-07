@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @booking = Booking.new
     authorize @booking
-    @chatroom = Chatroom.find_by(name: @project.name)
+    @chatroom = @project.chatroom
   end
 
   def new
@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    @project.update(project_params_edit)
+    @project.update(project_params)
     redirect_to organization_path(current_organization)
   end
 

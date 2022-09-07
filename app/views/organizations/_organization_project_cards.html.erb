@@ -4,7 +4,15 @@
       <% if project.end_date > Date.current%>
         <div class="col-11 col-md-10">
           <%= link_to project_path(project), class: "hover-purple text-decoration-none" do %>
-            <%= render 'shared/card', project: project %>
+            <div class="d-flex">
+              <%= render 'shared/card', project: project %>
+              <%=  link_to edit_project_path(project) do %>
+                <i class="fa-regular fa-pen-to-square"></i>
+              <% end %>
+              <%=  link_to "#" do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
