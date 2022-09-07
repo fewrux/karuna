@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@project.name} · #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @project.description %>
-<% content_for :meta_image, cl_image_path(@project.photos.first.key) %>
+<%# content_for :meta_image, cl_image_path(@project.photos.first.key) %>
 
 <div class="container showpage-title mb-3">
   <h1 class= "project-header ms-0"><strong> <%= @project.name %></strong></h1>
@@ -54,7 +54,9 @@
   <p class="text-justify ms-2 p-description mt-4"> <%= @project.description %> </p>
 </div>
 
-
+<% if organization_signed_in? && @project.organization == current_organization && @project.end_date < Date.current %>
+  <%= render 'shared/booking_attendance', project: @project %>
+<% else %>
 <div class="container project-volunteers mt-5">
   <h3>Volunteers</strong></h3>
     <div class="volunteer-grid d-flex justify-content-between">
@@ -87,12 +89,19 @@
 
     </div>
   </div>
+<% end %>
+
+
 
 <% if user_signed_in? || organization_signed_in? %>
   <% if policy(@chatroom).show? %>
     <div class="container mb-5 d-flex justify-content-center">
       <div class="d-flex flex-column align-items-center text-center justify-content-around chatroom-div">
-        <h2>You're already part of this family!<br>Wanna share something? </h2>
+        <% if user_signed_in? %>
+          <h2>You're already part of this family!<br>Wanna share something? </h2>
+        <% elsif organization_signed_in? %>
+          <h2>Something important to discuss with your team?</h2>
+        <% end %>
         <%= link_to "JOIN THE CHAT", chatroom_path(@chatroom), class:'btn btn-purple w-50' %>
       </div>
     </div>
