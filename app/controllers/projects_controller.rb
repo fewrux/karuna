@@ -11,6 +11,10 @@ class ProjectsController < ApplicationController
     elsif params[:query].present?
       @projects = policy_scope(Project).search_by_project(params[:query])
     end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "projects/list", locals: {projects: @projects}, formats: [:html] }
+    end
   end
   def show
     authorize @project
