@@ -46,12 +46,6 @@ class ProjectsController < ApplicationController
     redirect_to organization_path(current_organization)
   end
 
-  def show
-    authorize @project
-    @booking = Booking.new
-    authorize @booking
-  end
-
   private
 
   def set_project
