@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = policy_scope(Project)
@@ -16,11 +16,12 @@ class ProjectsController < ApplicationController
       format.text { render partial: "projects/list", locals: {projects: @projects}, formats: [:html] }
     end
   end
+
   def show
     authorize @project
     @booking = Booking.new
     authorize @booking
-    @chatroom = Chatroom.find_by(name: @project.name)
+    @chatroom = @project.chatroom
   end
 
   def new
@@ -46,14 +47,15 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    @project.update(project_params_edit)
+    @project.update(project_params)
     redirect_to organization_path(current_organization)
   end
 
-  def show
+  def destroy
     authorize @project
-    @booking = Booking.new
-    authorize @booking
+
+    @project.destroy
+    redirect_to organization_path(current_organization), notice: "Project was successfully deleted.", status: :see_other
   end
 
   private
