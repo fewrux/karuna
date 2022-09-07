@@ -11,6 +11,8 @@
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    font-size: 40px;
+    font-family: 'Work-Sans';
   }
 
   .messages {
@@ -43,4 +45,10 @@
     font-weight: bold;
     margin: 0;
   }
+}
+
+#chat-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
