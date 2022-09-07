@@ -1,12 +1,26 @@
 <div class="container chatroom my-5 p-5"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+  data-chatroom-subscription-current-user-id-value="<%= user_signed_in? ? current_user.id : current_organization.id %>"
   >
-  <h1>#<%= @chatroom.name %></h1>
-
+  <div class="chatroom-title text-center d-flex justify-content-center align-items-center">
+    <%= image_tag 'https://cdn-icons-png.flaticon.com/512/3073/3073390.png', id:'chat-icon' %><h1><%= @chatroom.name %></h1>
+  </div>
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <% if user_signed_in? %>
+        <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        </div>
+      <% elsif organization_signed_in? %>
+        <div class="message-row d-flex <%= message.sender?(current_organization) ? 'justify-content-end' : 'justify-content-start' %>">
+          <div class="<%= message.sender?(current_organization) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <%= simple_form_for [@chatroom, @message],
