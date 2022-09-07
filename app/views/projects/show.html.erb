@@ -37,7 +37,14 @@
  </div>
 
 <div class="container project-infos">
-  <h2><i class="fa-solid fa-leaf me-3 ms-2 mt-4"></i><strong><%= @project.category %></strong></h2>
+  <div class="row">
+    <div class="col col-9">
+      <h2><i class="fa-solid fa-leaf me-3 ms-2 mt-4"></i><strong><%= @project.category %></strong></h2>
+    </div>
+    <div class="col col-3", style="align-self: center; font-weight: bold; bs-link-hover-color: purple;" >
+      <%= link_to "Hosted by", organization_path(@project.organization_id) %>
+    </div>
+  </div>
   <p style="color:grey;"><i class="fa-solid fa-location-dot ms-2 mt-3"></i> <%= @project.address %></p>
   <p style="color:grey;"><i class="fa-solid fa-calendar-days ms-2"></i>  <%= @project.start_date %> <i class="fa-solid fa-calendar-check ms-4"></i>  <%= @project.end_date %></p>
   <p class="text-justify ms-2 p-description mt-4"> <%= @project.description %> </p>
@@ -77,18 +84,26 @@
     </div>
   </div>
 
-
-<div class="container mb-5">
-  <div class="d-flex justify-content-center ">
-    <section id="bookings" class="background my-5">
-      <div class="offer-info container p-5 border form-show-page">
-        <h3 class="text-center mb-3">Join the team</h3>
-        <%= simple_form_for [@project, @booking], data: { controller: "flatpickr" } do |f| %>
-          <%= f.input :start_date, label: false, placeholder: 'Start date', input_html: { class: "border-green b-radius my-5", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
-          <%= f.input :end_date, label: false, placeholder: 'End date', input_html: { class: "border-green b-radius mb-4", data: { flatpickr_target: "secondRangeInput" } }, as: :string %>
-          <%= f.submit "Volunteer", class: "btn btn-lg btn-block btn-purple w-100 mt-4" %>
-        <% end %>
-      </div>
-    </section>
+<% if policy(@chatroom).show? %>
+  <div class="container mb-5 d-flex justify-content-center">
+    <div class="d-flex flex-column align-items-center text-center justify-content-around chatroom-div">
+      <h2>You're already part of this family!<br>Wanna share something? </h2>
+      <%= link_to "JOIN THE CHAT", chatroom_path(@chatroom), class:'btn btn-purple w-50' %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="container mb-5">
+    <div class="d-flex justify-content-center">
+      <section id="bookings" class="background my-5">
+        <div class="offer-info container p-5 border form-show-page">
+          <h3 class="text-center mb-3">Join the team</h3>
+          <%= simple_form_for [@project, @booking], data: { controller: "flatpickr" } do |f| %>
+            <%= f.input :start_date, label: false, placeholder: 'Start date', input_html: { class: "border-green b-radius my-5", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
+            <%= f.input :end_date, label: false, placeholder: 'End date', input_html: { class: "border-green b-radius mb-4", data: { flatpickr_target: "secondRangeInput" } }, as: :string %>
+            <%= f.submit "Volunteer", class: "btn btn-lg btn-block btn-purple w-100 mt-4" %>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+<% end %>

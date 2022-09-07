@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.project = @project
 
-    authorize @booking
+  authorize @booking
 
     if @booking.save
       redirect_to user_path(current_user), notice: "Booking created"

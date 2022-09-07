@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_them
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def pundit_user
+    if organization_signed_in?
+      current_organization
+    elsif user_signed_in?
+      current_user
+    end
+  end
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :age, :gender, :document, :country, :photo])

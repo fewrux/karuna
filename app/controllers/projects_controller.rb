@@ -12,6 +12,12 @@ class ProjectsController < ApplicationController
       @projects = policy_scope(Project).search_by_project(params[:query])
     end
   end
+  def show
+    authorize @project
+    @booking = Booking.new
+    authorize @booking
+    @chatroom = Chatroom.find_by(name: @project.name)
+  end
 
   def new
     @project = Project.new
