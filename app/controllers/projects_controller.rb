@@ -47,8 +47,8 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    @project.update(project_params)
-    redirect_to organization_path(current_organization_edit)
+    @project.update(project_params_edit)
+    redirect_to organization_path(current_organization)
   end
 
   def destroy
