@@ -16,11 +16,12 @@ class ProjectsController < ApplicationController
       format.text { render partial: "projects/list", locals: {projects: @projects}, formats: [:html] }
     end
   end
+
   def show
     authorize @project
     @booking = Booking.new
     authorize @booking
-    @chatroom = Chatroom.find_by(name: @project.name)
+    @chatroom = @project.chatroom
   end
 
   def new
@@ -48,12 +49,6 @@ class ProjectsController < ApplicationController
     authorize @project
     @project.update(project_params_edit)
     redirect_to organization_path(current_organization)
-  end
-
-  def show
-    authorize @project
-    @booking = Booking.new
-    authorize @booking
   end
 
   private
