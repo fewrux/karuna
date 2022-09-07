@@ -19,6 +19,9 @@ application.register("modal", ModalController)
 import OrganizationTabsController from "./organization_tabs_controller"
 application.register("organization-tabs", OrganizationTabsController)
 
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
 
