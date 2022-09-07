@@ -9,7 +9,7 @@ export default class extends Controller {
     console.log(`Connecting to the ActionCable channel with id ${this.chatroomIdValue}`)
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
-      { received: (data) => { this.#insertMessage(data) } }
+      { received: (data) => { this.#insertMessageAndScrollDown(data) } }
     )
   }
 
@@ -20,17 +20,6 @@ export default class extends Controller {
   disconnect() {
     console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
-  }
-
-  #insertMessage(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
-  }
-
-  #insertMessageAndScrollDown(data) {
-    // Logic to know if the sender is the current_user
-    const currentUserIsSender = this.currentUserIdValue === data.sender_id
-    // [...]
   }
 
   #buildMessageElement(currentUserIsSender, message) {
