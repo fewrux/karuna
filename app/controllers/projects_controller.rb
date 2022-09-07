@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   def update
     authorize @project
     @project.update(project_params)
-    redirect_to organization_path(current_organization)
+    redirect_to organization_path(current_organization_edit)
   end
 
   def destroy
@@ -85,8 +85,7 @@ class ProjectsController < ApplicationController
                                     :city,
                                     :available_spots,
                                     :start_date,
-                                    :end_date,
-
+                                    :end_date
                                    )
   end
 end
