@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_them
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def default_url_options
+    { host: ENV.fetch("DOMAIN", "localhost:3000") }
+  end
+
   def pundit_user
     if organization_signed_in?
       current_organization
