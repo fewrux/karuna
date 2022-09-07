@@ -33,7 +33,6 @@ gem "cloudinary"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
-gem "dotenv-rails", groups: [:development, :test]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -79,7 +78,11 @@ group :test do
   gem "webdrivers"
 end
 
+gem "dotenv-rails", groups: [:development, :test]
+
 gem 'faker'
+
+gem 'rest-client', '~> 2.1'
 
 # gem country_select for simple_form 'country' input field
 gem 'country_select'
