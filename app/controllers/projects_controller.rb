@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = policy_scope(Project)
@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
       @projects = policy_scope(Project).search_by_continent(params[:continent])
     elsif params[:query].present?
       @projects = policy_scope(Project).search_by_project(params[:query])
+    end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "projects/list", locals: {projects: @projects}, formats: [:html] }
     end
   end
 
@@ -43,8 +47,15 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    @project.update(project_params_edit)
+    @project.update(project_params)
     redirect_to organization_path(current_organization)
+  end
+
+  def destroy
+    authorize @project
+
+    @project.destroy
+    redirect_to organization_path(current_organization), notice: "Project was successfully deleted.", status: :see_other
   end
 
   private

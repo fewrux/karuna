@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@user.first_name} · #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @user.about %>
-<%# <% content_for :meta_image, cl_image_path(@user.photo.path) %> %>
+<%# <% content_for :meta_image, cl_image_path(@user.photo.key) %>
 
 <div data-controller="user-tabs">
   <nav class="b-bottom w-100 mt-5 pb-0">

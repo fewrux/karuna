@@ -23,6 +23,10 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.organization == user
+  end
+
+  def destroy?
+    record.organization == user
   end
 end
