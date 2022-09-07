@@ -23,7 +23,7 @@ export default class extends Controller {
   }
 
   #insertMessage(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", JSON.stringify(data))
+    this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
