@@ -10,9 +10,10 @@
       <%= f.input :address, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :city, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :available_spots, input_html: { class: "border-purple b-radius px-4", min: '1' } %>
-      <%= f.input :start_date, input_html: { class: "border-purple b-radius px-4", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
-      <%= f.input :end_date, input_html: { class: "border-purple b-radius px-4", data: { flatpickr_target: "secondRangeInput" }  }, as: :string %>
+      <%= f.input :start_date, input_html: { class: "border-purple b-radius px-4", data: { flatpickr_target: "firstRangeInput" }, value: @project.start_date.strftime("%d %b, %Y") }, as: :string %>
+      <%= f.input :end_date, input_html: { class: "border-purple b-radius px-4", data: { flatpickr_target: "secondRangeInput" }, value: @project.end_date.strftime("%d %b, %Y")  }, as: :string %>
       <%= f.input :photos, as: :file, input_html: { multiple: true, class: "border-purple b-radius px-4" } %>
+
       <%= f.submit class: "btn btn-lg btn-outline-light b-radius w-100 mt-3" %>
     <% end %>
   </div>
