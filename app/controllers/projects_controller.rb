@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = policy_scope(Project)
@@ -47,8 +47,15 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    @project.update(project_params_edit)
+    @project.update(project_params)
     redirect_to organization_path(current_organization)
+  end
+
+  def destroy
+    authorize @project
+
+    @project.destroy
+    redirect_to organization_path(current_organization), notice: "Project was successfully deleted.", status: :see_other
   end
 
   private
