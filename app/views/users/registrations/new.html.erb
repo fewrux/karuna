@@ -1,6 +1,6 @@
 <main class="container mt-5 p-5">
   <div class="form-card devise-form background-purple b-radius p-5 pb-4">
-    <h2>Sign up</h2>
+    <h2 class="mb-3">Sign up</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
       <%= f.error_notification %>
@@ -9,23 +9,28 @@
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "first name" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "first name" } %>
         <%= f.input :last_name,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "last name" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "last name" } %>
+        <%= f.input :about,
+                    required: true,
+                    autofocus: true,
+                    label: "Tell the world about your purpose",
+                    input_html: { class: "border-purple b-radius", autocomplete: "about" } %>
         <%= f.input :age,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "age" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "age" } %>
         <%= f.input :country,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "country" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "country" } %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "email" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "email" } %>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -33,10 +38,13 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { class: "border-purple b-radius", autocomplete: "new-password" } %>
-        <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius"} %>
+        <%= f.input :photo,
+                    as: :file,
+                    label: "Add a profile picture",
+                    input_html: { class: "border-purple b-radius"} %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "Sign up", class: "btn btn-lg btn-outline-light b-radius w-100 mt-3" %>
+        <%= f.button :submit, "Sign up", class: "btn btn-lg btn-outline-light b-radius w-100 mt-3 mb-2" %>
       </div>
     <% end %>
 
