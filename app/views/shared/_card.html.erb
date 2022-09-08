@@ -13,7 +13,7 @@
       <p><%= project.description[0..120] %>...</p>
     </div>
 
-    <% if project.end_date < Date.current && project.booking_status %>
+    <% if project.end_date < Date.current && project.booking_status && project.organization == current_organization %>
       <div class="attendance">
         <%= link_to "Attendance Check", project_path(project), class: "btn attendance-button" %>
       </div>
