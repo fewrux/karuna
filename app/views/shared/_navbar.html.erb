@@ -50,6 +50,9 @@
             <%= link_to "Projects", projects_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "My panel", organization_path(current_organization), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "New project", new_project_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
@@ -67,6 +70,7 @@
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My panel", organization_path(current_organization), class: "dropdown-item" %>
+              <%= link_to "New project", new_project_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_organization_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
