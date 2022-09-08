@@ -3,6 +3,7 @@
     "flatpickr",
     "hotwired",
     "Karuna",
-    "lewagon"
+    "lewagon",
+    "REDISCLOUD"
   ]
 }
