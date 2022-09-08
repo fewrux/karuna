@@ -1,10 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['firstModal', 'secondModal', 'thirdModal', 'fourthModal']
+  static targets = ['firstModal', 'secondModal', 'thirdModal', 'fourthModal', 'medalModal', 'secondMedalModal']
 
   connect() {
     console.log("Hello from our first Stimulus controller")
+    console.log(this.medalModalTarget)
   }
   openFirstModal() {
     this.firstModalTarget.style.display = "block";
@@ -18,7 +19,12 @@ export default class extends Controller {
   openFourthModal() {
     this.fourthModalTarget.style.display = "block";
   }
-
+  openMedalModal() {
+    this.medalModalTarget.style.display = "block";
+  }
+  openSecondMedalModal() {
+    this.secondMedalModalTarget.style.display = "block";
+  }
   closeFirstModal() {
     this.firstModalTarget.style.display = "none";
   }
@@ -30,5 +36,11 @@ export default class extends Controller {
   }
   closeFourthModal() {
     this.fourthModalTarget.style.display = "none";
+  }
+  closeMedalModal() {
+    this.medalModalTarget.style.display = "none";
+  }
+  closeSecondMedalModal() {
+    this.secondMedalModalTarget.style.display = "none";
   }
 }
