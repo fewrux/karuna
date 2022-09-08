@@ -56,9 +56,7 @@
             <%= link_to "New project", new_project_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-
           <%= cl_image_tag current_organization.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My panel", organization_path(current_organization), class: "dropdown-item" %>
               <%= link_to "New project", new_project_path, class: "dropdown-item" %>
