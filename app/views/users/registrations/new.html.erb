@@ -9,23 +9,23 @@
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "first name" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "first name" } %>
         <%= f.input :last_name,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "last name" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "last name" } %>
         <%= f.input :age,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "age" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "age" } %>
         <%= f.input :country,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "country" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "country" } %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { class: "border-purple b-radius", autocomplete: "email" }%>
+                    input_html: { class: "border-purple b-radius", autocomplete: "email" } %>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -36,7 +36,7 @@
         <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius"} %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "Sign up", class: "btn btn-lg btn-outline-light b-radius w-100 mt-3" %>
+        <%= f.button :submit, "Sign up", class: "btn btn-lg btn-outline-light b-radius w-100 mt-3 mb-2" %>
       </div>
     <% end %>
 

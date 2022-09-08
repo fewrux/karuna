@@ -1,26 +1,50 @@
-<h2>Sign up</h2>
+<main class="container mt-5 p-5">
+  <div class="form-card devise-form background-purple b-radius p-5 pb-4">
+    <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius"} %>
+      <div class="form-inputs">
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "border-purple b-radius", autocomplete: "name" } %>
+        <%= f.input :about,
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "border-purple b-radius", autocomplete: "about" } %>
+        <%= f.input :address,
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "border-purple b-radius", autocomplete: "address" } %>
+        <%= f.input :country,
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "border-purple b-radius", autocomplete: "country" } %>
+        <%= f.input :website,
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "border-purple b-radius", autocomplete: "website" } %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "border-purple b-radius", autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { class: "border-purple b-radius", autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { class: "border-purple b-radius", autocomplete: "new-password" } %>
+        <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius", class: "border-purple b-radius"} %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: "btn btn-lg btn-outline-light b-radius w-100 mt-3 mb-2" %>
+      </div>
+    <% end %>
+
+    <%= render "organizations/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "organizations/shared/links" %>
+</main>
