@@ -26,6 +26,7 @@ user_male.save!
 puts "Created male user"
 
 organization = Organization.new(name:"Company", email: "company@company.com", password:"123445", address: "Rua Visconde de Piraja, 300, Rio de Janeiro", country: "Brasil", website: "www.company.com")
+organization.about = "Comunidad Inti Wara Yassi is a Bolivian non-governmental organization dedicated to environmental education and the care of sick, mistreated and abandoned wildlife."
 organization.save!
 
 puts "Created organization"
