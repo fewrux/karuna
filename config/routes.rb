@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   get "users/:id/projects", to: "users#projects", as: "user_projects"
 
-  get "users/:id/messages", to: "users#messages", as: "user_messages"
+  get "users/:id/concluded", to: "users#concluded", as: "user_concluded"
 
   get "users/:id/skills", to: "users#skills", as: "user_skills"
 
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   get "organizations/:id/projects", to: "organizations#projects", as: "organization_projects"
 
-  get "organizations/:id/messages", to: "organizations#messages", as: "organization_messages"
+  get "organizations/:id/concluded", to: "organizations#concluded", as: "organization_concluded"
 
   get "organizations/:id/requests", to: "organizations#requests", as: "organization_requests"
 

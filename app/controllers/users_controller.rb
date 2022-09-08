@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show projects messages skills badges]
+  before_action :set_user, only: %i[show projects concluded skills badges]
   def show
     authorize @user
   end
@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     render_partial("cards")
   end
 
-  def messages
+  def concluded
     authorize @user
-    render_partial("messages")
+    render_partial("concluded")
   end
 
   def skills
