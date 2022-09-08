@@ -50,9 +50,9 @@ class Project < ApplicationRecord
   end
 
   def set_default_image
-    unless self.photos.empty?
-      self.photos.attach(io: File.open(Rails.root.join('app/assets/images/project_default_photo.png')),
-      filename: 'project_default_photo.png')
+    if self.photos.empty?
+      self.photos.attach(io: File.open(Rails.root.join('app/assets/images/project_default_photo.jpg')),
+      filename: 'project_default_photo.jpg')
     end
   end
 end
