@@ -33,10 +33,7 @@ class Project < ApplicationRecord
     bookings_status = self.bookings.map do |booking|
                         booking.status
                       end
-    status_to_check = ['pending', 'accepted', 'declined']
-    status_to_check.any? do |status|
-      booking_status.include?(status)
-    end
+    bookings_status.include?('accepted')
   end
 
   private
