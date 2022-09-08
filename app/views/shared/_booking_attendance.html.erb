@@ -1,24 +1,34 @@
-<div class="container attendance-div">
-  <h2>Project Attendance</h2>
-  <% project.bookings.each do |booking| %>
-    <% if booking.status == 'accepted' || booking.status == 'concluded' || booking.status == 'missed' %>
-      <div class="d-flex justify-content-end">
-        <%= booking.user.full_name %>
-        <% if booking.status == 'accepted' %>
-          <div class="d-flex justify-content-end">
-            <%= link_to concluded_booking_path(booking), data:{ turbo_confirm: 'Confirm this attendance?' } do %>
-              <i class="fa-solid fa-circle-check concluded-booking mx-2"></i>
+<div class="container attendance-div text-center my-5">
+  <h3 class='my-4' id='attendance-title'><%= project.name %> attendance</h3>
+  <div class="attendance-grid d-flex justify-content-between">
+     <% project.bookings.each do |booking| %>
+        <% if booking.status == 'accepted' || booking.status == 'concluded' || booking.status == 'missed' %>
+          <div class="attendance-card d-flex flex-column align-items-center justify-content-center">
+            <%= link_to user_path(booking.user), class:'attendance-avatar' do %>
+              <% if booking.user.photo.attached? %>
+                  <%= cl_image_tag booking.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-28.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
             <% end %>
-            <%= link_to missed_booking_path(booking), data:{ turbo_confirm: 'Confirm this absence?' } do %>
-              <i class="fa-solid fa-x missed-booking"></i>
+              <p>Did <strong><%= link_to booking.user.full_name, user_path(booking.user) %></strong><br>show up?</p>
+            <% if booking.status == 'accepted' %>
+              <div class="d-flex justify-content-center">
+                <%= link_to concluded_booking_path(booking), data:{ turbo_confirm: 'Confirm this attendance?' } do %>
+                  <i class="fa-solid fa-circle-check accept-booking mx-2"></i>
+                <% end %>
+                <%= link_to missed_booking_path(booking), data:{ turbo_confirm: 'Confirm this absence?' } do %>
+                  <i class="fa-solid fa-x decline-booking"></i>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="d-flex">
+                <%= render 'shared/status', booking: booking %>
+              </div>
             <% end %>
-          </div>
-        <% else %>
-          <div class="d-flex">
-            <%= render 'shared/status', booking: booking %>
           </div>
         <% end %>
-      </div>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
