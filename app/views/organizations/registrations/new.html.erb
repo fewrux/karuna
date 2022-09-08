@@ -15,6 +15,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius"} %>
   </div>
 
   <div class="form-actions">

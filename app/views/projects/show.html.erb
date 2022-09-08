@@ -61,11 +61,13 @@
   <h3>Volunteers</strong></h3>
     <div class="volunteer-grid d-flex justify-content-between">
       <% @project.bookings.each do |booking|  %>
-        <% if booking.user.photo.attached? %>
-          <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"volunteer-pics mx-2" %>
-        <% else  %>
-          <%= image_tag 'https://images.unsplash.com/photo-1629467057571-42d22d8f0cbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80', class:"volunteer-pics" %>
-        <% end  %>
+        <%= link_to user_path(booking.user) do %>
+          <% if booking.user.photo.attached? %>
+            <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"volunteer-pics mx-2" %>
+          <% else  %>
+            <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class:"volunteer-pics" %>
+          <% end  %>
+        <% end %>
       <% end  %>
     </div>
   </div>

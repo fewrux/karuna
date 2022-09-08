@@ -7,4 +7,5 @@ class Organization < ApplicationRecord
   has_many :projects
   has_many :bookings, through: :projects
   has_many :messages
+  has_one_attached :photo
 end
