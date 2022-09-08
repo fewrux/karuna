@@ -30,7 +30,7 @@
 
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-             <%= image_tag ("https://icon-library.com/images/default-user-icon/default-user-icon-28.jpg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+             <%= image_tag ("https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -50,6 +50,9 @@
             <%= link_to "Projects", projects_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "My panel", organization_path(current_organization), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "New project", new_project_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
@@ -58,6 +61,7 @@
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My panel", organization_path(current_organization), class: "dropdown-item" %>
+              <%= link_to "New project", new_project_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_organization_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

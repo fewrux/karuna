@@ -1,5 +1,9 @@
 <div class="user-panel-aside d-flex">
- <%= cl_image_tag @user.photo.key, class: "avatar-xl mb-3" %>
+<% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, class: "avatar-xl mb-3" %>
+    <% else  %>
+    <%= image_tag("https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png", class: "avatar-xl mb-3") %>
+    <% end %>
   <div class="user-bio">
     <h3><%= @user.first_name%> <%= @user.last_name %></h3>
     <p><i class="fa-solid fa-location-dot"></i> <%= @user.country %></p>
