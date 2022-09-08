@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  after_create :set_default_image
+
   belongs_to :organization
   has_many :bookings
   has_one :chatroom
@@ -45,5 +47,12 @@ class Project < ApplicationRecord
     @chatroom = Chatroom.new(name: self.name)
     @chatroom.project = self
     @chatroom.save!
+  end
+
+  def set_default_image
+    unless self.photos.empty?
+      self.photos.attach(io: File.open(Rails.root.join('app/assets/images/project_default_photo.png')),
+      filename: 'project_default_photo.png')
+    end
   end
 end
