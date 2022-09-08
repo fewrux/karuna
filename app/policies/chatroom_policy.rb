@@ -8,11 +8,15 @@ class ChatroomPolicy < ApplicationPolicy
 
   def show?
     users_ids = record.project.bookings.map do |booking|
-                  booking.user_id
-                end
+      booking.user_id
+    end
     user_booking = record.project.bookings.find do |booking|
-                     booking.user == user
-                   end
-    (record.project.organization == user) || (users_ids.include?(user.id) && (!user_booking.declined? || !user_booking.missed?))
+      booking.user == user
+    end
+    if user.is_a?(Organization)
+      (record.project.organization == user)
+    else
+      (users_ids.include?(user.id) && (!user_booking.declined? || !user_booking.missed?))
+    end
   end
 end
