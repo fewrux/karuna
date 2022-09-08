@@ -12,4 +12,10 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def status_count
+    self.bookings.map do |booking|
+      booking.status
+    end
+  end
 end

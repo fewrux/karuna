@@ -4,8 +4,45 @@
     <% else  %>
     <%= image_tag("https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png", class: "avatar-xl mb-3") %>
     <% end %>
-  <div class="user-bio">
+  <div class="user-bio" data-controller="modal">
     <h3><%= @user.first_name%> <%= @user.last_name %></h3>
     <p><i class="fa-solid fa-location-dot"></i> <%= @user.country %></p>
+    <% if @user.status_count.count('concluded') > 0 %>
+      <%= button_tag data: { action: "click->modal#openMedalModal" } do  %>
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/4168/4168977.png", class: "user-medal" %>
+      <% end %>
+    <% end %>
+
+    <div class="modal" data-modal-target="medalModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button data-action="click->modal#closeMedalModal">&times;</button>
+          <h3>Amazing! 🎉</h3>
+        </div>
+        <div class="modal-body text-center">
+          <p><strong><%= @user.full_name %></strong> concluded his first Project!</p>
+          <%= image_tag "https://media2.giphy.com/media/MeIucAjPKoA120R7sN/giphy.gif?cid=ecf05e474wsbdsa8eyp46ydzbwnr23qg2fj3u1dah1ppmn98&rid=giphy.gif&ct=g", class: "medal-animation"  %>
+        </div>
+      </div>
+    </div>
+
+    <% if @user.status_count.count('concluded') > 4 %>
+      <%= button_tag data: { action: "click->modal#openSecondMedalModal" } do  %>
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/8289/8289880.png", class: "user-medal"  %>
+      <% end %>
+    <% end %>
+
+    <div class="modal" data-modal-target="secondMedalModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button data-action="click->modal#closeSecondMedalModal">&times;</button>
+          <h3>Wow! 😯</h3>
+        </div>
+        <div class="modal-body text-center">
+          <p><strong><%= @user.full_name %></strong> made impact on 5 different projects!</p>
+          <%= image_tag "https://media4.giphy.com/media/OSOOHw7N9gb3R06OU7/giphy.gif?cid=ecf05e477dsxasztv79lf7xgheb1qisfqnmkllll6ejaks1l&rid=giphy.gif&ct=g", class: "medal-animation"  %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

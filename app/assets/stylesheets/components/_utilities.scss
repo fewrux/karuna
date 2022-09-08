@@ -62,3 +62,15 @@
 .soft-gray {
   color: $soft-gray;
 }
+
+.user-medal {
+  width: 40px;
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
+}
+
+.medal-animation {
+  width: 80px;
+}
