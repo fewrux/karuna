@@ -14,7 +14,7 @@ class OrganizationPolicy < ApplicationPolicy
     true
   end
 
-  def messages?
+  def concluded?
     true
   end
 

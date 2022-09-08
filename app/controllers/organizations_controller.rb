@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: %i[show projects messages requests]
+  before_action :set_organization, only: %i[show projects concluded requests]
 
   def show
     authorize @organization
@@ -10,9 +10,9 @@ class OrganizationsController < ApplicationController
     render_partial("project_cards")
   end
 
-  def messages
+  def concluded
     authorize @organization
-    render_partial("messages")
+    render_partial("concluded")
   end
 
   def requests
