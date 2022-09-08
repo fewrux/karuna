@@ -1,7 +1,11 @@
-<div class="banner d-flex align-items center justify-content-center typewriter">
-  <p><span id="banner-title" data-controller="typed-js"></span></p>
-  <%= image_tag 'purple-wave.png', class:'separator-wave' %>
+<div class="banner d-flex justify-content-start typewriter">
+  <div class="hero-text my-auto p-5">
+    <h1 class="hero-title text-success fs-lg fw-bold mb-1">Compassion is Action</h1>
+    <p class="text-success fs-3 mt-1">Volunteer for projects that matter and be a part of the change.</p>
+    <%= link_to "Find a project", '#project-types', class: "btn btn-lg btn-purple fw-bold py-2 px-4" %>
+  </div>
 
+  <%= image_tag 'purple-wave.png', class:'separator-wave' %>
 </div>
 
 <%= image_tag 'main-wave.png', class:'normal-wave' %>
@@ -113,7 +117,7 @@
 
 <%= image_tag 'main-wave.png', class:'normal-wave' %>
 
-<section class="container home-section">
+<section id="project-types" class="container home-section">
   <div class="container main-text text-center py-5 mt-5">
     <h2 class="text">Project Types</h2>
     <div class="container d-flex justify-content-center">
