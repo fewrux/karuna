@@ -70,6 +70,7 @@ class ProjectsController < ApplicationController
                                     :category,
                                     :address,
                                     :city,
+                                    :continent,
                                     :available_spots,
                                     :start_date,
                                     :end_date,
@@ -83,6 +84,7 @@ class ProjectsController < ApplicationController
                                     :category,
                                     :address,
                                     :city,
+                                    :continent,
                                     :available_spots,
                                     :start_date,
                                     :end_date
