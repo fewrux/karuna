@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'date'
 require 'faker'
-# require "open-uri"
+require "open-uri"
 
 puts "Cleaning database"
 Booking.destroy_all
