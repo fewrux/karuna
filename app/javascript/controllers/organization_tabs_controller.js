@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="organization-tabs"
 export default class extends Controller {
-  static targets = ["main", "projects", "messages", "requests"]
+  static targets = ["main", "projects", "concluded", "requests"]
 
   connect() {
     console.log("hello from organization tabs controller");
@@ -10,19 +10,19 @@ export default class extends Controller {
 
   setProjectsActive() {
     this.projectsTarget.classList.add("active");
-    this.messagesTarget.classList.remove("active");
+    this.concludedTarget.classList.remove("active");
     this.requestsTarget.classList.remove("active");
   }
 
-  setMessagesActive() {
+  setConcludedActive() {
     this.projectsTarget.classList.remove("active");
-    this.messagesTarget.classList.add("active");
+    this.concludedTarget.classList.add("active");
     this.requestsTarget.classList.remove("active");
   }
 
   setRequestsActive() {
     this.projectsTarget.classList.remove("active");
-    this.messagesTarget.classList.remove("active");
+    this.concludedTarget.classList.remove("active");
     this.requestsTarget.classList.add("active");
   }
 
@@ -39,12 +39,12 @@ export default class extends Controller {
       })
   }
 
-  renderMessages(event) {
+  renderConcluded(event) {
     event.preventDefault();
 
-    this.setMessagesActive();
+    this.setConcludedActive();
 
-    const url = `${this.messagesTarget.href}`
+    const url = `${this.concludedTarget.href}`
     fetch(url, { headers: { "Accept": "text/plain" } })
       .then(response => response.text())
       .then((data) => {

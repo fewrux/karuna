@@ -46,11 +46,26 @@ projects = []
   project.start_date = Faker::Date.between(from: '2021-01-21', to: '2024-12-12')
   project.end_date = project.start_date + rand(7..365)
   project.organization = organization
-  file = URI.open("https://img.freepik.com/premium-vector/raised-hands-volunteers-concept_36244-204.jpg")
-  project.photos.attach(io: file, filename: "myimage.jpg", content_type: "image/jpg")
+  # file = URI.open("https://img.freepik.com/premium-vector/raised-hands-volunteers-concept_36244-204.jpg")
+  # project.photos.attach(io: file, filename: "myimage.jpg", content_type: "image/jpg")
   project.save!
   projects << project
 end
+
+old_project = Project.new
+old_project.name = Faker::Mountain.range
+old_project.description = Faker::Quote.jack_handey
+old_project.category = categories.sample
+old_project.continent = continents.sample
+old_project.address = Faker::Address.street_address
+old_project.city = Faker::Address.city
+old_project.available_spots = rand(5..50)
+old_project.start_date = Faker::Date.between(from: '2020-01-21', to: '2021-01-22')
+old_project.end_date = old_project.start_date + rand(7..365)
+old_project.organization = organization
+file = URI.open("https://img.freepik.com/premium-vector/raised-hands-volunteers-concept_36244-204.jpg")
+old_project.photos.attach(io: file, filename: "myimage.jpg", content_type: "image/jpg")
+old_project.save!
 
 puts "Created project"
 
@@ -60,6 +75,9 @@ third_booking = Booking.new(start_date:Date.new(2003,2,3), end_date:Date.new(200
 first_booking.save!
 second_booking.save!
 third_booking.save!
+
+old_booking = Booking.new(start_date:Date.new(2003,2,3), end_date:Date.new(2003,2,3), user: user, project: old_project, status: "concluded")
+old_booking.save!
 
 puts "Created booking"
 
