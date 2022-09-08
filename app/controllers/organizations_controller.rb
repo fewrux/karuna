@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
   end
 
   def concluded
+    # @projects = @organization.projects.where("end_date < ?", "#{Date.current}")
     authorize @organization
     render_partial("concluded")
   end
