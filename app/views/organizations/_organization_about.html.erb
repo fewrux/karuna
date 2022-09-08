@@ -11,15 +11,15 @@
       <h4 class="fw-bold mb-4">Projects</h4>
       <div class="d-flex gap-4">
         <div class="card-round rounded-circle bg-primary text-success text-center d-flex flex-column justify-content-center pb-1">
-          <p class="fs-4 fw-bold lh-1 m-0">5</p>
+          <p class="fs-4 fw-bold lh-1 m-0"><%= @organization.projects.where("end_date > ?", "#{Date.current}").length %></p>
           <p class="m-0">Active</p>
         </div>
         <div class="card-round rounded-circle bg-primary text-success text-center d-flex flex-column justify-content-center pb-1">
-          <p class="fs-4 fw-bold lh-1 m-0">1</p>
+          <p class="fs-4 fw-bold lh-1 m-0">0</p>
           <p class="m-0">Ongoing</p>
         </div>
         <div class="card-round rounded-circle bg-primary text-success text-center d-flex flex-column justify-content-center pb-1">
-          <p class="fs-4 fw-bold lh-1 m-0">16</p>
+          <p class="fs-4 fw-bold lh-1 m-0"><%= @organization.projects.where("end_date < ?", "#{Date.current}").length %></p>
           <p class="m-0">Concluded</p>
         </div>
       </div>
