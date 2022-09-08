@@ -1,0 +1,33 @@
+.attendance-div {
+  width: 80%;
+  min-height: 30vh;
+}
+
+.attendance-card {
+  width: 300px;
+  height: 150px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+
+  p {
+    margin-bottom: 0 !important;
+  }
+
+  a {
+    &:hover {
+      color: black;
+      text-decoration: underline !important;
+    }
+  }
+}
+
+.attendance-avatar {
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
+}
+
+#attendance-title {
+  color: $mid-gray;
+}
