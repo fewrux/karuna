@@ -1,4 +1,5 @@
 <% categories = %w[Agriculture Animal\ Rescue Construction Education Environmental Relief\ Effort Sanitation Water\ Access] %>
+<% continents = %w[Africa Asia Europe North\ America South\ America Oceania ] %>
 
 <main class="container my-5 p-5">
   <div class="form-card background-purple b-radius p-5">
@@ -9,6 +10,7 @@
       <%= f.input :category, collection: categories, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :address, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :city, input_html: { class: "border-purple b-radius px-4" } %>
+      <%= f.input :continent, collection: continents, input_html: { class: "border-purple b-radius px-4" } %>
       <%= f.input :available_spots, input_html: { class: "border-purple b-radius px-4", min: '1' } %>
       <%= f.input :start_date, input_html: { class: "border-purple b-radius px-4", data: { flatpickr_target: "firstRangeInput" } }, as: :string %>
       <%= f.input :end_date, input_html: { class: "border-purple b-radius px-4", data: { flatpickr_target: "secondRangeInput" }  }, as: :string %>
