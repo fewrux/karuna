@@ -14,6 +14,11 @@
                     required: true,
                     autofocus: true,
                     input_html: { class: "border-purple b-radius", autocomplete: "last name" } %>
+        <%= f.input :about,
+                    required: true,
+                    autofocus: true,
+                    label: "Tell the world about your purpose",
+                    input_html: { class: "border-purple b-radius", autocomplete: "about" } %>
         <%= f.input :age,
                     required: true,
                     autofocus: true,
@@ -33,7 +38,10 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { class: "border-purple b-radius", autocomplete: "new-password" } %>
-        <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius"} %>
+        <%= f.input :photo,
+                    as: :file,
+                    label: "Add a profile picture",
+                    input_html: { class: "border-purple b-radius"} %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class: "btn btn-lg btn-outline-light b-radius w-100 mt-3 mb-2" %>

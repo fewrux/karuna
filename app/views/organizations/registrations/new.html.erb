@@ -1,6 +1,6 @@
 <main class="container mt-5 p-5">
   <div class="form-card devise-form background-purple b-radius p-5 pb-4">
-    <h2>Sign up</h2>
+    <h2 class="mb-3">Register your organization</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
       <%= f.error_notification %>
@@ -9,10 +9,12 @@
         <%= f.input :name,
                     required: true,
                     autofocus: true,
+                    label: "Organization name",
                     input_html: { class: "border-purple b-radius", autocomplete: "name" } %>
         <%= f.input :about,
                     required: true,
                     autofocus: true,
+                    label: "Tell the world about your mission",
                     input_html: { class: "border-purple b-radius", autocomplete: "about" } %>
         <%= f.input :address,
                     required: true,
@@ -37,7 +39,10 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { class: "border-purple b-radius", autocomplete: "new-password" } %>
-        <%= f.input :photo, as: :file, input_html: { class: "border-purple b-radius", class: "border-purple b-radius"} %>
+        <%= f.input :photo,
+                    as: :file,
+                    label: "Add a photo for your page banner",
+                    input_html: { class: "border-purple b-radius", class: "border-purple b-radius"} %>
       </div>
 
       <div class="form-actions">
