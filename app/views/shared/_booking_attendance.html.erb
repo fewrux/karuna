@@ -1,14 +1,22 @@
-<div class="container">
+<div class="container attendance-div">
   <h2>Project Attendance</h2>
-  <%  project.bookings.each do |booking| %>
-    <% if booking.status == 'accepted' %>
+  <% project.bookings.each do |booking| %>
+    <% if booking.status == 'accepted' || booking.status == 'concluded' || booking.status == 'missed' %>
       <div class="d-flex justify-content-end">
         <%= booking.user.full_name %>
-        <%= link_to concluded_booking_path(booking) do %>
-          <i class="fa-solid fa-circle-check status-concluded mx-2"></i>
-        <% end %>
-        <%= link_to missed_booking_path(booking) do %>
-          <i class="fa-solid fa-x status-missed"></i>
+        <% if booking.status == 'accepted' %>
+          <div class="d-flex justify-content-end">
+            <%= link_to concluded_booking_path(booking), data:{ turbo_confirm: 'Confirm this attendance?' } do %>
+              <i class="fa-solid fa-circle-check concluded-booking mx-2"></i>
+            <% end %>
+            <%= link_to missed_booking_path(booking), data:{ turbo_confirm: 'Confirm this absence?' } do %>
+              <i class="fa-solid fa-x missed-booking"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="d-flex">
+            <%= render 'shared/status', booking: booking %>
+          </div>
         <% end %>
       </div>
     <% end %>

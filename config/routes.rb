@@ -41,8 +41,6 @@ Rails.application.routes.draw do
 
   get "users/:id/badges", to: "users#badges", as: "user_badges"
 
-  get "test", to: "pages#test"
-
   # Organization Routes
 
   resources :organizations, only: %i[show]

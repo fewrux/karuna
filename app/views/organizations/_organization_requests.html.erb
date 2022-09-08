@@ -16,19 +16,14 @@
                     <i class="fa-solid fa-x decline-booking"></i>
                   <% end %>
                 </div>
-              <% elsif booking.status == 'accepted' %>
-              <div class="d-flex justify-content-end">
-               <span class="status-accepted mb-0 py-1 px-3 b-solid b-radius">Accepted</span>
-              </div>
               <% else %>
-              <div class="d-flex justify-content-end">
-                <span class="status-declined mb-0 py-1 px-3 b-solid b-radius">Declined</span>
-              </div>
+                <div class="d-flex justify-content-end">
+                    <%= render 'shared/status', booking: booking %>
+                </div>
               <% end %>
           </div>
         </div>
       <% end %>
     <% end %>
   <% end %>
-<%# comment to push %>
 </div>

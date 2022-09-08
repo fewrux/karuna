@@ -22,9 +22,9 @@ class BookingsController < ApplicationController
   def accept
     authorize @booking
     if @booking.accepted!
-      redirect_to organization_requests_path(@organization), notice: 'booking accepted'
+      redirect_to organization_path(@organization), notice: 'booking accepted'
     else
-      redirect_to organization_requests_path(@organization), notice: 'booking could not be accepted - please try again'
+      redirect_to organization_path(@organization), notice: 'booking could not be accepted - please try again'
     end
   end
 
@@ -32,9 +32,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.declined!
-      redirect_to organization_requests_path(@organization), notice: 'booking rejected'
+      redirect_to organization_path(@organization), notice: 'booking rejected'
     else
-      redirect_to organization_requests_path(@organization), notice: 'booking could not be rejected - please try again'
+      redirect_to organization_path(@organization), notice: 'booking could not be rejected - please try again'
     end
   end
 
@@ -42,9 +42,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.missed!
-      redirect_to organization_requests_path(@organization), notice: 'booking declined'
+      redirect_to project_path(@booking.project), notice: 'booking declined'
     else
-      redirect_to organization_requests_path(@organization), notice: 'booking could not be declined - please try again'
+      redirect_to project_path(@booking.project), notice: 'booking could not be declined - please try again'
     end
   end
 
@@ -52,9 +52,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.concluded!
-      redirect_to organization_requests_path(@organization), notice: 'booking concluded'
+      redirect_to project_path(@booking.project), notice: 'booking concluded'
     else
-      redirect_to organization_requests_path(@organization), notice: 'booking could not be set as concluded - please try again'
+      redirect_to project_path(@booking.project), notice: 'booking could not be set as concluded - please try again'
     end
   end
 

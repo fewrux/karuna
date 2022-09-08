@@ -61,3 +61,30 @@ button {
   border: none;
   background: none;
 }
+
+.attendance-button {
+  color: white;
+  background-color: $green;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.8;
+  font-size: 12px;
+  padding: 10px 12px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+
+  &:hover {
+    color: white;
+    opacity: 1;
+    background-color: $green;
+    border: 1px solid $green;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  &:focus {
+    background-color:$green;
+    color: white;
+    border: 1px solid $green;
+  }
+}
