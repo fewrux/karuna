@@ -27,12 +27,14 @@
         <% if project.bookings.empty? %>
         <p class="fs-6 btn-purple text-center py-2 px-4"><strong>Be the first to volunteer!</strong></p>
         <% else %>
-          <% project.bookings.each do |booking|  %>
-            <% if booking.user.photo.attached? %>
-              <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"avatar" %>
-            <% else  %>
-              <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class:"avatar" %>
-            <% end  %>
+          <% project.bookings.first(6).each do |booking|  %>
+            <span class="vp" data-bs-placement="bottom" title= "<%= "#{booking.user.first_name} #{booking.user.last_name}"  %>" >
+              <% if booking.user.photo.attached? %>
+                <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"avatar" %>
+              <% else  %>
+                <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class:"avatar" %>
+              <% end  %>
+            </span>
           <% end  %>
         <% end %>
       </div>
@@ -49,3 +51,7 @@
     </div>
   </div>
 </div>
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
