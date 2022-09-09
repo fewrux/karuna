@@ -7,31 +7,30 @@
 </div>
 
 <div class="container">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% @project.photos.each_with_index do |photo, index| %>
-          <% if index == 0 %>
-            <div class="carousel-item active">
-              <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
-            </div>
-          <% else %>
-            <div class="carousel-item">
-              <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
-            </div>
-          <% end %>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @project.photos.each_with_index do |photo, index| %>
+        <% if index == 0 %>
+          <div class="carousel-item active">
+            <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
+          </div>
+        <% else %>
+          <div class="carousel-item">
+            <%= cl_image_tag photo.key, crop: :fill, class:"d-block w-100" %>
+          </div>
         <% end %>
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <% end %>
     </div>
- </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
 <div class="container project-infos">
   <div class="row">
@@ -55,20 +54,19 @@
     <h3>Volunteers</strong></h3>
     <div class="volunteer-grid d-flex justify-content-between">
       <% @project.bookings.each do |booking|  %>
-        <%= link_to user_path(booking.user) do %>
-          <% if booking.user.photo.attached? %>
-            <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"volunteer-pics mx-2" %>
-          <% else  %>
-            <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class:"volunteer-pics" %>
-          <% end  %>
-        <% end %>
+        <span class="vp" data-bs-placement="bottom" title= "<%= "#{booking.user.first_name} #{booking.user.last_name}"  %>" >
+          <%= link_to user_path(booking.user) do %>
+            <% if booking.user.photo.attached? %>
+              <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"volunteer-pics mx-2" %>
+            <% else  %>
+              <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class:"volunteer-pics" %>
+            <% end  %>
+          <% end %>
+        </span>
       <% end  %>
     </div>
   </div>
 <% end %>
-
-
-
 
 <% if (user_signed_in? || organization_signed_in?) && policy(@chatroom).show? %>
     <div class="container mb-5 d-flex justify-content-center">
@@ -97,3 +95,7 @@
     </div>
   </div>
 <% end %>
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
