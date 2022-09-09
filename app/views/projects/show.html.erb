@@ -54,13 +54,15 @@
     <h3>Volunteers</strong></h3>
     <div class="volunteer-grid d-flex justify-content-between">
       <% @project.bookings.each do |booking|  %>
-        <%= link_to user_path(booking.user) do %>
-          <% if booking.user.photo.attached? %>
-            <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"volunteer-pics mx-2" %>
-          <% else  %>
-            <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class:"volunteer-pics" %>
-          <% end  %>
-        <% end %>
+        <span class="vp" data-bs-placement="bottom" title= "<%= "#{booking.user.first_name} #{booking.user.last_name}"  %>" >
+          <%= link_to user_path(booking.user) do %>
+            <% if booking.user.photo.attached? %>
+              <%= cl_image_tag booking.user.photo.key , crop: :fill, class:"volunteer-pics mx-2" %>
+            <% else  %>
+              <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class:"volunteer-pics" %>
+            <% end  %>
+          <% end %>
+        </span>
       <% end  %>
     </div>
   </div>
@@ -93,3 +95,7 @@
     </div>
   </div>
 <% end %>
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
