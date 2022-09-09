@@ -6,10 +6,10 @@
     <%= link_to user_concluded_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->user-tabs#renderConcluded", user_tabs_target: "concluded" } do %>
       <p class="pb-3 mb-0">Concluded</p>
     <% end %>
-    <%= link_to user_skills_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->user-tabs#renderSkills", user_tabs_target: "skills" } do %>
+    <%= link_to user_skills_path, class: "tab-link mt-4 pb-0 mb-0 d-none", data: { action: "click->user-tabs#renderSkills", user_tabs_target: "skills" } do %>
       <p class="pb-3 mb-0">Skills</p>
     <% end %>
-    <%= link_to user_badges_path, class: "tab-link mt-4 pb-0 mb-0", data: { action: "click->user-tabs#renderBadges", user_tabs_target: "badges" } do %>
+    <%= link_to user_badges_path, class: "tab-link mt-4 pb-0 mb-0 d-none", data: { action: "click->user-tabs#renderBadges", user_tabs_target: "badges" } do %>
       <p class="pb-3 mb-0">Badges</p>
     <% end %>
   <% end %>

@@ -8,8 +8,8 @@
     <h3><%= @user.first_name%> <%= @user.last_name %></h3>
     <p class="mb-2"><%= @user.about %></p>
     <p class="text-info fs-sm"><i class="fa-solid fa-location-dot"></i> <%= @user.country %></p>
-    <div class="b-bottom my-2"></div>
     <% if @user.status_count.count('concluded') > 0 %>
+    <div class="b-bottom my-2"></div>
       <%= button_tag data: { action: "click->modal#openMedalModal" } do  %>
         <%= image_tag "https://cdn-icons-png.flaticon.com/512/4168/4168977.png", class: "user-medal" %>
       <% end %>
