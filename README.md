@@ -11,7 +11,15 @@
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/felipecrubio">
+        <img src="https://avatars.githubusercontent.com/u/101313329?v=4" width="100px;" alt="Photo of Ana Paula"/><br>
+        <sub>
+          <a href="https://github.com/felipecrubio"><b>Felipe Rubio</b></a>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/apcbrasil">
         <img src="https://avatars.githubusercontent.com/u/106402830?v=4" width="100px;" alt="Photo of Ana Paula"/><br>
         <sub>
           <a href="https://github.com/apcbrasil"><b>Ana Paula Brasil</b></a>
@@ -19,7 +27,7 @@
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/zimer69">
         <img src="https://avatars.githubusercontent.com/u/104525881?v=4" width="100px;" alt="Photo of Dimitri"/><br>
         <sub>
           <a href="https://github.com/zimer69"><b>Dimitri Zimermann</b></a>
@@ -27,7 +35,7 @@
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/Joana3991">
         <img src="https://avatars.githubusercontent.com/u/68138653?v=4" width="100px;" alt="Photo of Joana"/><br>
         <sub>
           <a href="https://github.com/Joana3991"><b>Joana Arêas</b></a>
