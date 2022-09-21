@@ -6,15 +6,6 @@
 
 > Volunteering Platform and Social Network to connect NGOs and volunteers around the world. Developed in 8 days by a team of 4 for the final project for Le Wagon coding bootcamp. Built using Ruby on Rails, JavaScript with StimulusJS, CSS and Bootstrap.
 
-### Next steps
-
-The project is still in development and the next steps will aim at:
-
-- [ ] Add achievements feature for Volunteers
-- [ ] Add geocoding for map display on search functionality
-- [ ] Add skill tags for Volunteers and skill requirements for Projects
-- [ ] Update request acceptance functionality
-
 ## 🤝 Development Team
 
 <table>
@@ -45,6 +36,15 @@ The project is still in development and the next steps will aim at:
     </td>
   </tr>
 </table>
+
+### Next steps
+
+Upcoming features:
+
+- [ ] Add achievements feature for Volunteers
+- [ ] Add geocoding for map display on search functionality
+- [ ] Add skill tags for Volunteers and skill requirements for Projects
+- [ ] Update request acceptance functionality
 
 ##
 
