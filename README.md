@@ -37,9 +37,7 @@
   </tr>
 </table>
 
-### Next steps
-
-Upcoming features:
+### Upcoming Features
 
 - [ ] Add achievements feature for Volunteers
 - [ ] Add geocoding for map display on search functionality
