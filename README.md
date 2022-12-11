@@ -77,7 +77,7 @@
 
 ##
 
-Live link: https://karuna-app.herokuapp.com/
+Live link: https://karuna-world.herokuapp.com/
 
 ##
 
