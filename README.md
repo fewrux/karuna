@@ -2,7 +2,7 @@
 
 <img src="app/assets/images/cover.png" alt="banner">
 
-> Volunteering Platform and Social Network to connect NGOs and volunteers around the world. Developed in 8 days by a team of 4 for the final project for Le Wagon coding bootcamp. Built using Ruby on Rails, JavaScript with StimulusJS, CSS and Bootstrap.
+> Volunteering Platform and Social Network to connect NGOs and volunteers around the world. Developed in 8 days by a team of 4 for the final project for Le Wagon coding bootcamp. Built using Ruby on Rails, JavaScript with Stimulus.js, PostgreSQL and Bootstrap.
 
 ## ⚙️ Tools & Technologies used
 
