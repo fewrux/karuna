@@ -1,7 +1,5 @@
 # Karuna
 
-<!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
-
 <img src="app/assets/images/cover.png" alt="banner">
 
 > Volunteering Platform and Social Network to connect NGOs and volunteers around the world. Developed in 8 days by a team of 4 for the final project for Le Wagon coding bootcamp. Built using Ruby on Rails, JavaScript with StimulusJS, CSS and Bootstrap.
@@ -75,9 +73,11 @@
 - [ ] Add skill tags for Volunteers and skill requirements for Projects
 - [ ] Update request acceptance functionality
 
+<!---
 ##
 
 Live link: https://karuna-world.herokuapp.com/
+--->
 
 ##
 
